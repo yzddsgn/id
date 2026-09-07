@@ -1,1 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://yzddsgn.github.io/id/assets/css/style.css">
+    <title>YZD DSGN | Streetwear</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="nav">
+
+            <div class="logo">YZD <span>DSGN</span></div>
+
+            <div class="menu" id="menu">
+                <a href="#" id="active">Home</a>
+                <a href="shop/index.html">Shop</a>
+                <a href="#about">About</a>
+                <a href="#footer">Contact</a>
+                <button id="logoutBtn mm" class="auth-btn hidden">
+                    Logout
+                </button>
+            </div>
+
+            <div style="display:flex;gap:15px;align-items:center;">
+                <a href="../cart/index.html">
+                    <div class="cart">
+                        🛒
+                    </div>
+                </a>
+                <a href="login/index.html" id="loginBtn" class="auth-btn">
+                    Login
+                </a>
+                <button id="logoutBtn" class="auth-btn hidden">
+                    Logout
+                </button>
+                <div class="toggle" onclick="toggleMenu()">☰</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>YZD DSGN</h1>
+            <p>
+                Streetwear lokal untuk anak muda.
+                Minimalis, berani, dan dibuat untuk dipakai setiap hari.
+            </p>
+            <a href="#shop" class="btn">
+                BELANJA SEKARANG
+            </a>
+        </div>
+        <div class="hero-dots">
+            <button class="hero-dot active" data-slide="0"></button>
+            <button class="hero-dot" data-slide="1"></button>
+            <button class="hero-dot" data-slide="2"></button>
+            <button class="hero-dot" data-slide="3"></button>
+        </div>
+    </section>
+
+    <section id="shop">
+        <div class="container">
+            <div class="title">DROP COLLECTION</div>
+            <div class="subtitle">Kaos distro premium 100% cotton combed 24s</div>
+            <div class="filter">
+                <button class="active" onclick="filterProduct('all',this)">Semua</button>
+                <button onclick="filterProduct('hardcore',this)">Hardcore</button>
+                <button onclick="filterProduct('deathcore',this)">Deathcore</button>
+                <button onclick="filterProduct('graphic',this)">Graphic</button>
+                <button onclick="filterProduct('citymap',this)">City Map</button>
+            </div>
+
+            <div class="grid">
+                <div class="card deathcore">
+                    <img src="https://yzddsgn.github.io/id/assets/products/tshirts/DEATH DEMANDS REVENGE 001 (T-SHIRT).jpg">
+                    <div class="info">
+                        <div class="tag">DEATHCORE</div>
+                        <h3>Death Demands Revenge 001</h3>
+                        <div class="price">Rp110.000</div>
+                        <button class="buy" onclick="addCart(this)">
+                            Tambah Keranjang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card hardcore">
+                    <img src="https://yzddsgn.github.io/id/assets/products/tshirts/HARDCORE TODAY 001 (T-SHIRT).jpg">
+                    <div class="info">
+                        <div class="tag">HARDCORE</div>
+                        <h3>Hardcore Today 001</h3>
+                        <div class="price">Rp110.000</div>
+                        <button class="buy" onclick="addCart(this)">
+                            Tambah Keranjang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card graphic">
+                    <img src="https://yzddsgn.github.io/id/assets/products/tshirts/FUTURE GRAPHIC DESIGNER (T-SHIRT).jpg">
+                    <div class="info">
+                        <div class="tag">GRAPHIC</div>
+                        <h3>Future Graphic Desginer</h3>
+                        <div class="price">Rp110.000</div>
+                        <button class="buy" onclick="addCart(this)">
+                            Tambah Keranjang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card citymap">
+                    <img src="https://yzddsgn.github.io/id/assets/products/tshirts/BANDUNG V.1 (T-SHIRT).jpg">
+                    <div class="info">
+                        <div class="tag">CITY MAP</div>
+                        <h3>Bandung</h3>
+                        <div class="price">Rp110.000</div>
+                        <button class="buy" onclick="addCart(this)">
+                            Tambah Keranjang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card citymap">
+                    <img src="https://yzddsgn.github.io/id/assets/products/tshirts/CAIRO V.1 (T-SHIRT).jpg">
+                    <div class="info">
+                        <div class="tag">CITY MAP</div>
+                        <h3>Cairo</h3>
+                        <div class="price">Rp110.000</div>
+                        <button class="buy" onclick="addCart(this)">
+                            Tambah Keranjang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card citymap">
+                    <img src="https://yzddsgn.github.io/id/assets/products/tshirts/GARUT V.1 (T-SHIRT).jpg">
+                    <div class="info">
+                        <div class="tag">CITY MAP</div>
+                        <h3>Garut</h3>
+                        <div class="price">Rp110.000</div>
+                        <button class="buy" onclick="addCart(this)">
+                            Tambah Keranjang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card graphic">
+                    <img src="https://yzddsgn.github.io/id/assets/products/tshirts/LELES STATION (T-SHIRT).jpg">
+                    <div class="info">
+                        <div class="tag">GRAPHIC</div>
+                        <h3>Leles Station</h3>
+                        <div class="price">Rp70.000</div>
+                        <button class="buy" onclick="addCart(this)">
+                            Tambah Keranjang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card graphic">
+                    <img src="https://yzddsgn.github.io/id/assets/products/tshirts/جاكرتــــــا بقت مزعجــــــة أوي (T-SHIRT).jpg">
+                    <div class="info">
+                        <div class="tag">GRAPHIC</div>
+                        <h3>جاكرتــــــا بقت مزعجــــــة أوي</h3>
+                        <div class="price">Rp70.000</div>
+                        <button class="buy" onclick="addCart(this)">
+                            Tambah Keranjang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card graphic">
+                    <img src="https://yzddsgn.github.io/id/assets/products/tshirts/KATENGTREMAN (T-SHIRT).jpg">
+                    <div class="info">
+                        <div class="tag">GRAPHIC</div>
+                        <h3>Katengtreman</h3>
+                        <div class="price">Rp70.000</div>
+                        <button class="buy" onclick="addCart(this)">
+                            Tambah Keranjang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card graphic">
+                    <img src="https://yzddsgn.github.io/id/assets/products/tshirts/امتـــــــى يعنـــــــي (T-SHIRT).jpg">
+                    <div class="info">
+                        <div class="tag">GRAPHIC</div>
+                        <h3>امتـــــــى يعنـــــــي</h3>
+                        <div class="price">Rp70.000</div>
+                        <button class="buy" onclick="addCart(this)">
+                            Tambah Keranjang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container about">
+            <img src="https://picsum.photos/700/800?street">
+            <div>
+                <div class="title">ABOUT YZD DSGN</div>
+                <p>
+                    YZD DSGN adalah brand streetwear lokal yang menggabungkan desain minimal,
+                    budaya anak muda, dan kualitas bahan premium.
+                </p>
+                <br>
+                <p>
+                    Setiap koleksi dibuat terbatas (limited drop) agar setiap produk terasa eksklusif.
+                    Cocok untuk dipakai nongkrong, riding, hingga daily outfit.
+                </p>
+                <br>
+                <a href="#shop" class="btn">LIHAT KOLEKSI</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <h2 style="color:white;">YZD DSGN</h2>
+        <p style="margin:15px 0;">Streetwear for the Next Generation.</p>
+        <p>Instagram : @yzd_dsgn</p>
+        <p>Email : yzddesign1@gmail.com</p>
+        <p>WhatsApp : 0812-1814-1079</p>
+        <br>
+        <small>© 2026 YZD DSGN. All Rights Reserved.</small>
+    </footer>
+
+    <script src="https://yzddsgn.github.io/id/assets/js/script.js"></script>
+    <script type="module" src="https://yzddsgn.github.io/id/cart/js/cart.js"></script>
+    <script type="module" src="https://yzddsgn.github.io/id/login/js/auth.js"></script>
+    <script type="module" src="https://yzddsgn.github.io/id/login/js/navbar-auth.js"></script>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("show");
+        }
+    </script>
+
+</body>
+
+</html>
