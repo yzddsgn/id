@@ -28,7 +28,7 @@ const auth = getAuth(app);
 onAuthStateChanged(auth, (user) => {
 
     if (!user) {
-        window.location.href = "https://yzddsgn.github.io/id/login/";
+        window.location.href = "https://yzddsgn.github.io/id/login/index.html";
         return;
     }
 
@@ -68,11 +68,8 @@ function renderCheckout(products) {
 
         let image = item.image;
 
-        if (image.startsWith("https://yzddsgn.github.io/id/assets/")) {
-            image = image.replace(
-                "https://yzddsgn.github.io/id/",
-                "../"
-            );
+        if (image.startsWith("assets/")) {
+            image = "../" + image;
         }
 
         container.innerHTML += `
