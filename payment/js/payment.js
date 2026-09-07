@@ -68,8 +68,11 @@ function renderCheckout(products) {
 
         let image = item.image;
 
-        if (image.startsWith("https://yzddsgn.github.io/id/assets/products/tshirts")) {
-            image = "../" + image;
+        if (image.startsWith("https://yzddsgn.github.io/id/assets/")) {
+            image = image.replace(
+                "https://yzddsgn.github.io/id/",
+                "../"
+            );
         }
 
         container.innerHTML += `
