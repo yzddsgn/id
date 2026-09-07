@@ -57,7 +57,7 @@ logoutBtn.addEventListener("click", async () => {
         await signOut(auth);
 
         // Tetap di Home setelah logout
-        window.location.href = "../../index.html";
+        window.location.href = "https://yzddsgn.github.io/id/home/";
 
     } catch (error) {
 
