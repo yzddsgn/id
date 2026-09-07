@@ -920,7 +920,7 @@ function buyNow(index) {
     );
 
     // Pindah ke halaman payment
-    window.location.href = "../../payment/index.html";
+    window.location.href = "https://yzddsgn.github.io/id/payment/";
 
 }
 
