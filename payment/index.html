@@ -1,1 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - YZD DSGN</title>
+    <link rel="stylesheet" href="https://yzddsgn.github.io/id/payment/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="payment-header">
+        <a href="https://yzddsgn.github.io/id/home/" class="brand">
+            YZD <span>DSGN</span>
+        </a>
+        <div class="secure">
+            <span>🔒</span>
+            Secure Checkout
+        </div>
+    </header>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main class="payment-container">
+
+
+        <!-- =====================================
+             TITLE
+        ====================================== -->
+
+        <div class="page-title">
+            <span>CHECKOUT</span>
+            <h1>Pembayaran</h1>
+            <p>
+                Lengkapi informasi di bawah untuk
+                menyelesaikan pesanan kamu.
+            </p>
+        </div>
+
+
+        <div class="checkout-grid">
+
+            <!-- =================================
+                 LEFT
+            ================================== -->
+
+            <section class="checkout-left">
+
+                <!-- =============================
+                     DATA PENERIMA
+                ============================== -->
+
+                <div class="checkout-card">
+
+                    <div class="card-heading">
+                        <div class="number">
+                            01
+                        </div>
+                        <div>
+                            <h2>Informasi Penerima</h2>
+                            <p>
+                                Masukkan data untuk pengiriman.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="name">
+                            Nama Lengkap
+                        </label>
+                        <input type="text" id="name" placeholder="Nama penerima" required>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">
+                                Nomor WhatsApp
+                            </label>
+                            <input type="tel" id="phone" placeholder="08xxxxxxxxxx" required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="email">
+                                Email
+                            </label>
+                            <input type="email" id="email" placeholder="nama@email.com" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="address">
+                            Alamat Lengkap
+                        </label>
+                        <textarea id="address" rows="4" placeholder="Nama jalan, nomor rumah, RT/RW, kecamatan, dll."
+                            required></textarea>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">
+                                Kota / Kabupaten
+                            </label>
+                            <input type="text" id="city" placeholder="Contoh: Tangerang" required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="postal">
+                                Kode Pos
+                            </label>
+                            <input type="text" id="postal" placeholder="151xx" required>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="message">
+                            Pesan
+                        </label>
+                        <textarea id="message" rows="4" placeholder="Masukkan pesan" required></textarea>
+                    </div>
+                </div>
+
+                <!-- =================================
+                     METODE PEMBAYARAN
+                ================================== -->
+
+                <div class="checkout-card">
+                    <div class="card-heading">
+                        <div class="number">
+                            02
+                        </div>
+                        <div>
+                            <h2>
+                                Metode Pembayaran
+                            </h2>
+                            <p>
+                                Pilih metode pembayaran.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <!-- DANA -->
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="DANA" checked>
+                            <div class="payment-option-content">
+                                <div class="payment-icon">
+                                    DA
+                                </div>
+                                <div class="payment-info">
+                                    <strong>DANA</strong>
+                                    <span>Bayar menggunakan DANA</span>
+                                </div>
+                                <div class="radio"></div>
+                            </div>
+                        </label>
+
+
+                        <!-- OVO -->
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="OVO">
+                            <div class="payment-option-content">
+                                <div class="payment-icon">
+                                    OV
+                                </div>
+                                <div class="payment-info">
+                                    <strong>OVO</strong>
+                                    <span>Bayar menggunakan OVO</span>
+                                </div>
+                                <div class="radio"></div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =================================
+                 RIGHT - ORDER SUMMARY
+            ================================== -->
+
+            <aside class="order-summary">
+                <div class="summary-card">
+                    <div class="summary-title">
+                        <h2>Pesanan Kamu</h2>
+                        <span id="itemCount">0 Item</span>
+                    </div>
+                    <div id="cartItems"></div>
+                    <div class="summary-line"></div>
+                    <div class="price-row">
+                        <span>Subtotal</span>
+                        <strong id="subtotal">Rp0</strong>
+                    </div>
+                    <div class="price-row">
+                        <span>Ongkir</span>
+                        <strong>Rp0</strong>
+                    </div>
+                    <div class="summary-line"></div>
+                    <div class="total-row">
+                        <span>Total Pembayaran</span>
+                        <strong id="total">Rp0</strong>
+                    </div>
+                    <button class="pay-button" type="button" id="payNow">
+                        <span>Bayar Sekarang</span>
+                        <span>→</span>
+                    </button>
+
+                    <p class="payment-note">
+                        🔒 Pembayaran kamu diproses
+                        secara aman.
+                    </p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+        © 2026 YZD DSGN. All Rights Reserved.
+    </footer>
+
+    <script type="module" src="https://yzddsgn.github.io/id/js/payment.js"></script>
+
+</body>
+
+</html>
