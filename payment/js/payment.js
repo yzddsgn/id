@@ -280,6 +280,24 @@ document.getElementById("payNow").addEventListener("click", function () {
 
     // AMBIL PRODUK CHECKOUT
 
+    const size =
+        document.querySelector(
+            'input[name="size"]:checked'
+        );
+
+    if (!size) {
+
+        showPaymentAlert(
+            "Pilih Ukuran",
+            "Silahkan pilih ukuran T-Shirt terlebih dahulu.",
+            "warning"
+        );
+
+        return;
+    }
+
+    const selectedSize = size.value;
+
     const products =
         JSON.parse(
             sessionStorage.getItem("checkout")
@@ -313,6 +331,8 @@ document.getElementById("payNow").addEventListener("click", function () {
             (index + 1) +
             ". " +
             product.name +
+            "\n" +
+            "   Ukuran: " + selectedSize +
             "\n" +
             "   Jumlah: 1\n" +
             "   Harga: Rp" +
