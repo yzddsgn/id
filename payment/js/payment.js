@@ -246,7 +246,7 @@ document.getElementById("payNow").addEventListener("click", function () {
 
         showPaymentAlert(
             "Data Belum Lengkap",
-            "Silakan isi semua informasi penerima terlebih dahulu.",
+            "Silahkan isi semua informasi penerima terlebih dahulu.",
             "warning"
         );
 
@@ -266,7 +266,7 @@ document.getElementById("payNow").addEventListener("click", function () {
 
         showPaymentAlert(
             "Pilih Pembayaran",
-            "Silakan pilih metode pembayaran terlebih dahulu.",
+            "Silahkan pilih metode pembayaran terlebih dahulu.",
             "warning"
         );
 
