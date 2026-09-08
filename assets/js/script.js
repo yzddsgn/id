@@ -54,10 +54,10 @@ function filterProduct(category, el) {
 
 
 const heroImages = [
-    "https://picsum.photos/id/1018/1600/900",
-    "https://picsum.photos/id/1015/1600/900",
-    "https://picsum.photos/id/1016/1600/900",
-    "https://picsum.photos/id/1019/1600/900"
+    "https://yzddsgn.github.io/id/assets/products/model/model 1.jpg",
+    "https://yzddsgn.github.io/id/assets/products/model/model 2.jpg",
+    "https://yzddsgn.github.io/id/assets/products/model/model 3.jpg",
+    "https://yzddsgn.github.io/id/assets/products/model/model 4.jpg"
 ];
 
 const hero = document.getElementById("home");
