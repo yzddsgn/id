@@ -316,6 +316,46 @@ body {
     border: 5px solid #fff;
 }
 
+/* ================================
+   SIZE SELECTOR
+================================ */
+
+.size-options {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.size-option input {
+    display: none;
+}
+
+.size-option span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    border: 1px solid #2b2b2b;
+    border-radius: 14px;
+    background: #151515;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.size-option span:hover {
+    border-color: #fff;
+}
+
+.size-option input:checked+span {
+    background: #fff;
+    color: #111;
+    border-color: #fff;
+}
+
 /* =====================================================
    SUMMARY
 ===================================================== */
@@ -683,6 +723,13 @@ footer {
 
 }
 
+@media(max-width:600px) {
+
+    .size-options {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
 
 @media (max-width: 550px) {
 
