@@ -209,7 +209,7 @@ function addCart(button) {
                 font-weight:600;
                 color:#fff;
             ">
-                Silakan login terlebih dahulu
+                Silahkan login terlebih dahulu
             </span>
 
             <small style="
@@ -775,7 +775,7 @@ function loadCart() {
                 </h2>
 
                 <p style="margin-top:10px;">
-                    Silakan pilih produk terlebih dahulu.
+                    Silahkan pilih produk terlebih dahulu.
                 </p>
 
             </div>
