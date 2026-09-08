@@ -424,18 +424,6 @@ footer {
 
 @media(max-width:768px) {
 
-    /* .menu {
-        position: absolute;
-        top: 62px;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, .85);
-        flex-direction: column;
-        display: none;
-        padding: 20px;
-        font-size: clamp(14px, 4vw, 24px);
-    } */
-
     .menu {
         position: absolute;
         top: 100%;
