@@ -180,20 +180,58 @@ function addCart(button) {
 
             loginAlertStyle.textContent = `
 
-            @media (max-width: 600px) {
+            #cartAlert.login-alert {
+
+                position: fixed;
+
+                top: 25px;
+                right: 25px;
+
+                width: 340px;
+
+                min-height: 72px;
+
+                display: flex;
+                align-items: center;
+
+                gap: 13px;
+
+                padding: 15px 16px;
+
+                background: #111;
+
+                color: #fff;
+
+                border: 1px solid #2b2b2b;
+
+                border-radius: 14px;
+
+                box-shadow:
+                    0 12px 35px rgba(0, 0, 0, 0.35);
+
+                z-index: 999999;
+
+                box-sizing: border-box;
+
+                opacity: 0;
+
+                transform:
+                    translateX(120%);
+
+                transition:
+                    opacity 0.3s ease,
+                    transform 0.3s ease;
+            }
+
+            @media (max-width: 500px) {
 
                 #cartAlert.login-alert {
 
-                    flex-direction: column;
+                    top: 15px;
+                    right: 15px;
+                    left: 15px;
 
-                    align-items: center;
-
-                    text-align: center;
-                }
-
-                #cartAlert.login-alert .login-alert-text {
-
-                    text-align: center;
+                    width: auto;
                 }
 
             }
@@ -226,7 +264,7 @@ function addCart(button) {
             !
         </div>
 
-        <div class="login-alert-text" style="
+        <div style="
             flex:1;
             min-width:0;
             font-family:Arial,sans-serif;
@@ -275,26 +313,6 @@ function addCart(button) {
             ×
         </button>
     `;
-
-        alertBox.style.position = "fixed";
-        alertBox.style.top = "25px";
-        alertBox.style.right = "25px";
-        alertBox.style.width = "340px";
-        alertBox.style.minHeight = "72px";
-        alertBox.style.display = "flex";
-        alertBox.style.alignItems = "center";
-        alertBox.style.gap = "13px";
-        alertBox.style.padding = "15px 16px";
-        alertBox.style.background = "#111";
-        alertBox.style.color = "#fff";
-        alertBox.style.border = "1px solid #2b2b2b";
-        alertBox.style.borderRadius = "14px";
-        alertBox.style.boxShadow = "0 12px 35px rgba(0,0,0,.35)";
-        alertBox.style.zIndex = "999999";
-        alertBox.style.boxSizing = "border-box";
-        alertBox.style.opacity = "0";
-        alertBox.style.transform = "translateX(120%)";
-        alertBox.style.transition = "opacity .3s ease, transform .3s ease";
 
         document.body.appendChild(alertBox);
 
