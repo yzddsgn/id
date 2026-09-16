@@ -168,9 +168,46 @@ function addCart(button) {
             oldAlert.remove();
         }
 
+        var loginAlertStyle = document.getElementById(
+            "cartLoginAlertStyle"
+        );
+
+        if (!loginAlertStyle) {
+
+            loginAlertStyle = document.createElement("style");
+
+            loginAlertStyle.id = "cartLoginAlertStyle";
+
+            loginAlertStyle.textContent = `
+
+            @media (max-width: 600px) {
+
+                #cartAlert.login-alert {
+
+                    flex-direction: column;
+
+                    align-items: center;
+
+                    text-align: center;
+                }
+
+                #cartAlert.login-alert .login-alert-text {
+
+                    text-align: center;
+                }
+
+            }
+
+        `;
+
+            document.head.appendChild(loginAlertStyle);
+        }
+
         var alertBox = document.createElement("div");
 
         alertBox.id = "cartAlert";
+
+        alertBox.className = "login-alert";
 
         alertBox.innerHTML = `
         <div style="
@@ -189,7 +226,7 @@ function addCart(button) {
             !
         </div>
 
-        <div style="
+        <div class="login-alert-text" style="
             flex:1;
             min-width:0;
             font-family:Arial,sans-serif;
