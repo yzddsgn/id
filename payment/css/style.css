@@ -59,7 +59,7 @@ body {
 .brand {
     color: #fff;
     text-decoration: none;
-    font-size: 22px;
+    font-size: clamp(18px, 4vw, 22px);
     font-weight: 900;
     letter-spacing: 3px;
 }
@@ -70,7 +70,7 @@ body {
 
 .secure {
     color: #777;
-    font-size: 11px;
+    font-size: clamp(9px, 2.2vw, 11px);
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -100,14 +100,14 @@ body {
 
 .page-title>span {
     color: #777;
-    font-size: 10px;
+    font-size: clamp(9px, 2vw, 10px);
     font-weight: 800;
     letter-spacing: 3px;
 }
 
 .page-title h1 {
     margin: 8px 0;
-    font-size: 38px;
+    font-size: clamp(24px, 6vw, 38px);
     font-weight: 900;
     letter-spacing: -1px;
 }
@@ -115,7 +115,7 @@ body {
 .page-title p {
     margin: 0;
     color: #777;
-    font-size: 13px;
+    font-size: clamp(12px, 2.8vw, 13px);
 }
 
 /* =====================================================
@@ -164,19 +164,19 @@ body {
     background: #fff;
     color: #111;
     border-radius: 8px;
-    font-size: 11px;
+    font-size: clamp(10px, 2.5vw, 11px);
     font-weight: 900;
 }
 
 .card-heading h2 {
     margin: 0 0 5px;
-    font-size: 17px;
+    font-size: clamp(15px, 3.5vw, 17px);
 }
 
 .card-heading p {
     margin: 0;
     color: #666;
-    font-size: 11px;
+    font-size: clamp(10px, 2.5vw, 11px);
 }
 
 
@@ -198,7 +198,7 @@ body {
     display: block;
     margin-bottom: 8px;
     color: #aaa;
-    font-size: 11px;
+    font-size: clamp(10px, 2.5vw, 11px);
     font-weight: 700;
 }
 
@@ -212,7 +212,7 @@ body {
     background: #090909;
     color: #fff;
     font-family: inherit;
-    font-size: 13px;
+    font-size: clamp(13px, 3vw, 14px);
     transition:
         border .2s ease,
         background .2s ease;
@@ -286,7 +286,7 @@ body {
     border-radius: 8px;
     background: #fff;
     color: #111;
-    font-size: 11px;
+    font-size: clamp(10px, 2.5vw, 11px);
     font-weight: 900;
 }
 
@@ -297,12 +297,12 @@ body {
 .payment-info strong {
     display: block;
     margin-bottom: 4px;
-    font-size: 13px;
+    font-size: clamp(12px, 3vw, 13px);
 }
 
 .payment-info span {
     color: #666;
-    font-size: 10px;
+    font-size: clamp(9px, 2.2vw, 10px);
 }
 
 .radio {
@@ -341,7 +341,7 @@ body {
     background: #151515;
     color: #fff;
     font-weight: 700;
-    font-size: 15px;
+    font-size: clamp(13px, 3.5vw, 15px);
     cursor: pointer;
     transition: .25s;
 }
@@ -374,12 +374,12 @@ body {
 
 .summary-title h2 {
     margin: 0;
-    font-size: 18px;
+    font-size: clamp(16px, 4vw, 18px);
 }
 
 .summary-title span {
     color: #666;
-    font-size: 11px;
+    font-size: clamp(10px, 2.5vw, 11px);
 }
 
 /* =====================================================
@@ -415,25 +415,25 @@ body {
 }
 
 .product-detail strong {
-    font-size: 12px;
+    font-size: clamp(11px, 2.8vw, 12px);
     margin-bottom: 4px;
 }
 
 .product-detail span {
     color: #666;
-    font-size: 9px;
+    font-size: clamp(8px, 2vw, 9px);
     letter-spacing: 1px;
 }
 
 .product-detail small {
     color: #666;
-    font-size: 10px;
+    font-size: clamp(9px, 2.2vw, 10px);
     margin-top: 5px;
 }
 
 .product-detail b {
     margin-top: auto;
-    font-size: 12px;
+    font-size: clamp(11px, 2.8vw, 12px);
 }
 
 /* =====================================================
@@ -451,7 +451,7 @@ body {
     justify-content: space-between;
     margin: 11px 0;
     color: #777;
-    font-size: 12px;
+    font-size: clamp(11px, 2.8vw, 12px);
 }
 
 .price-row strong {
@@ -468,11 +468,11 @@ body {
 
 .total-row span {
     color: #aaa;
-    font-size: 12px;
+    font-size: clamp(11px, 2.8vw, 12px);
 }
 
 .total-row strong {
-    font-size: 20px;
+    font-size: clamp(18px, 5vw, 22px);
     font-weight: 900;
     white-space: nowrap;
 }
@@ -493,7 +493,7 @@ body {
     border-radius: 10px;
     background: #fff;
     color: #111;
-    font-size: 13px;
+    font-size: clamp(12px, 3vw, 13px);
     font-weight: 800;
     cursor: pointer;
     transition:
@@ -507,7 +507,7 @@ body {
 }
 
 .pay-button span:last-child {
-    font-size: 20px;
+    font-size: clamp(18px, 4.5vw, 20px);
 }
 
 /* =====================================================
@@ -518,7 +518,7 @@ body {
     margin: 15px 0 0;
     text-align: center;
     color: #555;
-    font-size: 9px;
+    font-size: clamp(8px, 2vw, 9px);
 }
 
 /* =====================================================
@@ -530,7 +530,7 @@ footer {
     border-top: 1px solid #1d1d1d;
     text-align: center;
     color: #444;
-    font-size: 9px;
+    font-size: clamp(8px, 2vw, 9px);
     letter-spacing: 1.5px;
 }
 
@@ -591,7 +591,7 @@ footer {
     border-radius: 50%;
     background: #f3f3f3;
     color: #555;
-    font-size: 24px;
+    font-size: clamp(20px, 5vw, 24px);
     line-height: 30px;
     cursor: pointer;
     transition: 0.2s ease;
@@ -613,7 +613,7 @@ footer {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    font-size: 30px;
+    font-size: clamp(24px, 6vw, 30px);
     font-weight: 700;
 }
 
@@ -638,14 +638,14 @@ footer {
 .payment-alert-content h3 {
     margin: 0 0 10px;
     color: #171717;
-    font-size: 22px;
+    font-size: clamp(18px, 4.5vw, 22px);
     font-weight: 700;
 }
 
 .payment-alert-content p {
     margin: 0;
     color: #666;
-    font-size: 15px;
+    font-size: clamp(13px, 3.2vw, 15px);
     line-height: 1.6;
 }
 
@@ -659,7 +659,7 @@ footer {
     border-radius: 12px;
     background: #111;
     color: white;
-    font-size: 15px;
+    font-size: clamp(13px, 3.2vw, 15px);
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s ease;
@@ -690,16 +690,6 @@ footer {
     .payment-alert-icon {
         width: 62px;
         height: 62px;
-
-        font-size: 26px;
-    }
-
-    .payment-alert-content h3 {
-        font-size: 20px;
-    }
-
-    .payment-alert-content p {
-        font-size: 14px;
     }
 
 }
@@ -750,11 +740,6 @@ footer {
         padding-top: 35px;
     }
 
-    .page-title h1 {
-
-        font-size: 30px;
-    }
-
     .checkout-card,
     .summary-card {
 
@@ -777,9 +762,19 @@ footer {
         gap: 7px;
     }
 
-    .total-row strong {
+}
 
-        font-size: 22px;
+@media (max-width: 360px) {
+
+    .checkout-card,
+    .summary-card {
+
+        padding: 16px;
+    }
+
+    .size-options {
+
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
