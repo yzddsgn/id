@@ -140,7 +140,7 @@ body {
 
     text-align: center;
 
-    font-size: 25px;
+    font-size: clamp(19px, 5vw, 25px);
 
     font-weight: 900;
 
@@ -172,7 +172,7 @@ body {
 
     color: #888;
 
-    font-size: 10px;
+    font-size: clamp(9px, 2.3vw, 10px);
 
     font-weight: 800;
 
@@ -184,7 +184,7 @@ body {
 
     margin: 0;
 
-    font-size: 36px;
+    font-size: clamp(26px, 8vw, 36px);
 
     font-weight: 900;
 
@@ -200,7 +200,7 @@ body {
 
     color: #888;
 
-    font-size: 13px;
+    font-size: clamp(12px, 3vw, 13px);
 
     line-height: 1.6;
 }
@@ -231,7 +231,7 @@ body {
 
     color: #111;
 
-    font-size: 14px;
+    font-size: clamp(13px, 3.2vw, 14px);
 
     font-weight: 700;
 
@@ -284,7 +284,7 @@ body {
 
     color: #555;
 
-    font-size: 9px;
+    font-size: clamp(8px, 2vw, 9px);
 
     font-weight: 700;
 
@@ -333,7 +333,7 @@ body {
 
     color: #777;
 
-    font-size: 11px;
+    font-size: clamp(10px, 2.5vw, 11px);
 
     line-height: 1.5;
 }
@@ -397,14 +397,14 @@ body {
 
     color: #444;
 
-    font-size: 9px;
+    font-size: clamp(8px, 2vw, 9px);
 
     letter-spacing: 1.5px;
 }
 
 
 /* =====================================================
-   MOBILE
+   MOBILE (<= 500px)
    ===================================================== */
 
 @media (max-width: 500px) {
@@ -415,14 +415,29 @@ body {
 
         border-radius: 16px;
     }
+}
 
-    .login-header h1 {
 
-        font-size: 32px;
+/* =====================================================
+   MOBILE KECIL (<= 360px)
+   ===================================================== */
+
+@media (max-width: 360px) {
+
+    .login-card {
+
+        padding: 28px 18px 22px;
+
+        border-radius: 14px;
     }
 
-    .login-footer {
+    .login-page {
 
-        font-size: 8px;
+        padding: 20px 12px;
+    }
+
+    .brand {
+
+        margin-bottom: 30px;
     }
 }
