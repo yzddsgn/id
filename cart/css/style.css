@@ -83,8 +83,8 @@ header {
 }
 
 .cart img {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
 }
 
 .toggle {
@@ -93,8 +93,8 @@ header {
 }
 
 .toggle img {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
 }
 
 .auth-btn {
@@ -105,8 +105,8 @@ header {
 }
 
 .auth-btn img {
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    width: 20px;
 }
 
 .auth-btn:hover {
