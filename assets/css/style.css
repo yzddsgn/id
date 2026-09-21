@@ -266,7 +266,80 @@ section {
 }
 
 /* ===================================================
-   TITLES / FILTER
+   SHOP SECTION — BACKGROUND PUTIH
+=================================================== */
+#shop {
+    background: #ffffff;
+    color: #111111;
+}
+
+#shop .title {
+    color: #0d0d0d;
+}
+
+#shop .title::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: #b7ff00;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+#shop .subtitle {
+    color: #666666;
+}
+
+#shop .filter button {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #222;
+}
+
+#shop .filter button.active,
+#shop .filter button:hover {
+    background: #b7ff00;
+    border-color: #b7ff00;
+    color: #0d0d0d;
+}
+
+#shop .card {
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .05);
+}
+
+#shop .card:hover {
+    border-color: #b7ff00;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .1);
+}
+
+#shop .card::before {
+    box-shadow: inset 0 0 0 0 #b7ff00;
+}
+
+#shop .card:hover::before {
+    box-shadow: inset 0 0 0 2px #b7ff00;
+}
+
+#shop .tag {
+    color: #5a8a00;
+    border: 1px solid rgba(183, 255, 0, .6);
+    background: rgba(183, 255, 0, .12);
+}
+
+#shop .info h3 {
+    color: #111111;
+    font-weight: 700;
+}
+
+#shop .price {
+    color: #0d0d0d;
+}
+
+/* ===================================================
+   TITLES / FILTER (default / dark sections)
 =================================================== */
 .title {
     font-family: 'Anton', sans-serif;
@@ -303,6 +376,7 @@ section {
     border-radius: 4px;
     cursor: pointer;
     transition: .2s ease;
+    flex-shrink: 0;
 }
 
 .filter button.active,
@@ -313,7 +387,7 @@ section {
 }
 
 /* ===================================================
-   PRODUCT GRID
+   PRODUCT GRID (default desktop/tablet)
 =================================================== */
 .grid {
     display: grid;
@@ -407,8 +481,13 @@ section {
 }
 
 /* ===================================================
-   ABOUT
+   ABOUT — BACKGROUND HITAM
 =================================================== */
+#about {
+    background: #0d0d0d;
+    color: white;
+}
+
 .about {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -745,6 +824,11 @@ section {
 
 }
 
+/* ===================================================
+   MOBILE: FILTER & GRID JADI HORIZONTAL SCROLL (MAGNET SNAP)
+   Berlaku untuk semua mode mobile, dari iPhone 4/5 (320px)
+   sampai batas breakpoint mobile (768px).
+=================================================== */
 @media(max-width:768px) {
 
     .menu {
@@ -781,16 +865,103 @@ section {
         font-size: clamp(14px, 4.5vw, 18px);
     }
 
+    /* ---- FILTER: horizontal scroll + snap ---- */
+    .filter {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 14px;
+        margin-bottom: 20px;
+        scrollbar-width: thin;
+        scrollbar-color: #b7ff00 #2a2a2a;
+    }
+
+    #shop .filter {
+        scrollbar-color: #b7ff00 #e5e5e5;
+    }
+
+    .filter button {
+        scroll-snap-align: start;
+    }
+
+    .filter::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .filter::-webkit-scrollbar-track {
+        background: #2a2a2a;
+        border-radius: 10px;
+    }
+
+    #shop .filter::-webkit-scrollbar-track {
+        background: #e5e5e5;
+    }
+
+    .filter::-webkit-scrollbar-thumb {
+        background: #b7ff00;
+        border-radius: 10px;
+    }
+
+    /* ---- GRID: horizontal scroll, 1 card = 1 layar, snap magnet ---- */
+    .grid {
+        display: flex;
+        grid-template-columns: unset;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px;
+        padding-bottom: 22px;
+        margin: 0 -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        scrollbar-width: thin;
+        scrollbar-color: #b7ff00 #2a2a2a;
+    }
+
+    #shop .grid {
+        scrollbar-color: #b7ff00 #e5e5e5;
+    }
+
+    .grid::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .grid::-webkit-scrollbar-track {
+        background: #2a2a2a;
+        border-radius: 10px;
+        margin: 0 20px;
+    }
+
+    #shop .grid::-webkit-scrollbar-track {
+        background: #e5e5e5;
+    }
+
+    .grid::-webkit-scrollbar-thumb {
+        background: #b7ff00;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, .15);
+    }
+
+    .card {
+        flex: 0 0 calc(100vw - 60px);
+        max-width: calc(100vw - 60px);
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+    }
+
+    .card img {
+        height: 62vw;
+        max-height: 380px;
+    }
 }
 
 @media (max-width: 480px) {
 
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
     .card img {
-        height: 220px;
+        height: 65vw;
     }
 
     .hero h1 {
@@ -799,6 +970,22 @@ section {
 
     .hero p {
         font-size: clamp(13px, 3.5vw, 15px);
+    }
+
+}
+
+/* iPhone 4 (320x480) & iPhone 5/SE (320x568) — card lebih pas */
+@media (max-width: 340px) {
+
+    .card {
+        flex: 0 0 calc(100vw - 44px);
+        max-width: calc(100vw - 44px);
+    }
+
+    .grid {
+        margin: 0 -16px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
 }
@@ -866,13 +1053,14 @@ section {
         margin-bottom: 18px;
     }
 
-    .grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 15px;
+    .card {
+        flex: 0 0 60vw;
+        max-width: 60vw;
     }
 
     .card img {
-        height: 160px;
+        height: 40vw;
+        max-height: 200px;
     }
 
     .info {
