@@ -396,12 +396,6 @@ section {
     height: 300px;
     object-fit: cover;
     filter: grayscale(10%) contrast(1.05);
-    transition: transform .4s ease, filter .4s ease;
-}
-
-.card:hover img {
-    transform: scale(1.05);
-    filter: grayscale(0%) contrast(1.1);
 }
 
 .info {
