@@ -90,8 +90,8 @@ header {
 }
 
 .cart img {
-    height: 12px;
-    width: 12px;
+    height: 25px;
+    width: 25px;
 }
 
 .toggle {
@@ -109,8 +109,8 @@ header {
 }
 
 .auth-btn img {
-    height: 12px;
-    width: 12px;
+    height: 25px;
+    width: 25px;
 }
 
 .auth-btn:hover {
@@ -348,10 +348,6 @@ footer {
         font-size: clamp(11px, 3.5vw, 14px);
     }
 
-    .cart {
-        font-size: clamp(12px, 4vw, 16px);
-    }
-
 }
 
 @media (min-width: 321px) and (max-width: 360px) {
@@ -362,10 +358,6 @@ footer {
 
     .menu a {
         font-size: clamp(12px, 3.5vw, 15px);
-    }
-
-    .cart {
-        font-size: clamp(13px, 4vw, 17px);
     }
 
 }
@@ -380,10 +372,6 @@ footer {
         font-size: clamp(13px, 3.5vw, 16px);
     }
 
-    .cart {
-        font-size: clamp(14px, 4vw, 18px);
-    }
-
 }
 
 @media (min-width: 391px) and (max-width: 430px) {
@@ -396,10 +384,6 @@ footer {
         font-size: clamp(14px, 3.5vw, 17px);
     }
 
-    .cart {
-        font-size: clamp(15px, 4vw, 19px);
-    }
-
 }
 
 @media (min-width: 431px) and (max-width: 600px) {
@@ -410,10 +394,6 @@ footer {
 
     .menu a {
         font-size: clamp(14px, 3vw, 18px);
-    }
-
-    .cart {
-        font-size: clamp(15px, 3vw, 20px);
     }
 
 }
