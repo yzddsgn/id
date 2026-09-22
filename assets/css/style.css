@@ -95,6 +95,12 @@ header {
     color: #b7ff00;
 }
 
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
 .cart {
     cursor: pointer;
 }
@@ -143,49 +149,105 @@ header {
 }
 
 /* ===================================================
-   HERO
+   HERO — Erigo style
+   Desktop: teks + tombol overlay di pojok kiri bawah foto
+   Mobile (portrait): teks + tombol di BAWAH foto, bg hitam
 =================================================== */
 .hero {
-    height: 100vh;
-    background-image:
-        linear-gradient(180deg, rgba(13, 13, 13, .35) 0%, rgba(13, 13, 13, .75) 65%, #0d0d0d 100%),
-        url("https://picsum.photos/id/1018/1600/900");
+    background: #0d0d0d;
+    padding: 130px 20px 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-frame {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.hero-media {
+    width: 100%;
+    aspect-ratio: 21 / 9;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
     position: relative;
     overflow: hidden;
-    transition: background-image 0.5s ease-in-out;
+    border-radius: 4px;
 }
 
-.hero::before {
+.hero-media::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(45deg, rgba(255, 255, 255, .025) 0 2px, transparent 2px 6px);
+    background: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .35) 32%, rgba(0, 0, 0, 0) 60%);
     pointer-events: none;
-    z-index: 1;
 }
 
 .hero-content {
-    position: relative;
+    position: absolute;
+    left: 36px;
+    bottom: 36px;
     z-index: 2;
-    max-width: 700px;
+    max-width: 460px;
+    text-align: left;
+}
+
+.hero-content h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(28px, 4.2vw, 54px);
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+}
+
+.hero-content h1::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 4px;
+    background: #b7ff00;
+    margin: 14px 0 0;
+}
+
+.hero-content p {
+    font-size: clamp(13px, 1.4vw, 16px);
+    margin: 16px 0 22px;
+    line-height: 1.7;
+    color: #e2e2e2;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 34px;
+    background: #b7ff00;
+    color: black;
+    font-weight: 800;
+    font-size: clamp(13px, 3vw, 16px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #b7ff00;
+    border-radius: 4px;
+    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+    transition: .25s ease;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #b7ff00;
+    transform: scale(1.05);
 }
 
 .hero-dots {
     position: absolute;
-    left: 50%;
-    bottom: 30px;
-    transform: translateX(-50%);
+    right: 24px;
+    bottom: 24px;
+    z-index: 2;
     display: flex;
     gap: 10px;
-    z-index: 10;
 }
 
 .hero-dot {
@@ -208,52 +270,6 @@ header {
 .hero-dot.active {
     background: #b7ff00;
     transform: scale(1.3);
-}
-
-.hero h1 {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(28px, 7vw, 62px);
-    font-weight: 400;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    text-shadow: 0 0 30px rgba(183, 255, 0, .25);
-}
-
-.hero h1::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: #b7ff00;
-    margin: 18px auto 0;
-}
-
-.hero p {
-    font-size: clamp(14px, 3vw, 17px);
-    margin: 20px 0;
-    line-height: 1.8;
-    color: #ddd;
-}
-
-.btn {
-    display: inline-block;
-    padding: 14px 34px;
-    background: #b7ff00;
-    color: black;
-    font-weight: 800;
-    font-size: clamp(13px, 3vw, 16px);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 2px solid #b7ff00;
-    border-radius: 4px;
-    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
-    transition: .25s ease;
-}
-
-.btn:hover {
-    background: transparent;
-    color: #b7ff00;
-    transform: scale(1.05);
 }
 
 section {
@@ -787,11 +803,32 @@ section {
 }
 
 /* ===================================================
-   MOBILE: FILTER & GRID JADI HORIZONTAL SCROLL (MAGNET SNAP)
-   Berlaku untuk semua mode mobile, dari iPhone 4/5 (320px)
-   sampai batas breakpoint mobile (768px).
+   MOBILE (<=768px): NAV — toggle kiri, logo tengah, actions kanan
 =================================================== */
-@media(max-width:768px) {
+@media (max-width: 768px) {
+
+    .nav {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+    }
+
+    .toggle {
+        display: block;
+        grid-column: 1;
+        justify-self: start;
+    }
+
+    .logo {
+        grid-column: 2;
+        justify-self: center;
+        text-align: center;
+    }
+
+    .nav-actions {
+        grid-column: 3;
+        justify-self: end;
+    }
 
     .menu {
         position: absolute;
@@ -805,14 +842,11 @@ section {
         font-size: clamp(14px, 4vw, 24px);
         box-sizing: border-box;
         z-index: 999;
+        grid-column: unset;
     }
 
     .menu.show {
         display: flex;
-    }
-
-    .toggle {
-        display: block;
     }
 
     .about {
@@ -920,18 +954,57 @@ section {
     }
 }
 
-@media (max-width: 480px) {
+/* ===================================================
+   MOBILE PORTRAIT ONLY: HERO stacked di bawah foto, bg hitam
+   (Landscape TIDAK kena aturan ini — tetap overlay seperti
+   desktop, disesuaikan lagi lewat media query landscape)
+=================================================== */
+@media (max-width: 768px) and (orientation: portrait) {
 
-    .card img {
-        height: 65vw;
+    .hero {
+        padding: 100px 20px 40px;
     }
 
-    .hero h1 {
-        font-size: clamp(24px, 8vw, 36px);
+    .hero-frame {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .hero p {
-        font-size: clamp(13px, 3.5vw, 15px);
+    .hero-media {
+        width: 100%;
+        max-width: 420px;
+        aspect-ratio: 3 / 4;
+        margin: 0 auto;
+    }
+
+    .hero-media::after {
+        display: none;
+    }
+
+    .hero-content {
+        position: static;
+        max-width: 100%;
+        text-align: center;
+        margin-top: 26px;
+        padding: 0 10px;
+    }
+
+    .hero-content h1::after {
+        margin: 14px auto 0;
+    }
+
+    .hero-dots {
+        position: static;
+        justify-content: center;
+        margin-top: 18px;
+    }
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+
+    .hero-media {
+        max-width: 340px;
     }
 
 }
@@ -950,6 +1023,10 @@ section {
         padding-right: 16px;
     }
 
+    .hero-media {
+        max-width: 280px;
+    }
+
 }
 
 
@@ -959,6 +1036,23 @@ section {
    sampai HP terbesar saat ini (~926px lebar landscape).
    max-height membedakan HP dari tablet/desktop, karena
    tablet landscape tingginya masih di atas 500px.
+
+   PERBAIKAN DARI VERSI SEBELUMNYA:
+   1. Selector "footer{...}" diganti "#footer{...}" — sebelumnya
+      tidak pernah ke-apply karena kalah spesifisitas dengan
+      #footer di atas (id selector > tag selector).
+   2. .grid & .card sekarang di-set ulang secara mandiri di
+      dalam query ini (display:flex + scroll-snap), karena
+      sebelumnya field flex hanya efektif jika lebar layar
+      juga <=768px. Padahal HP landscape lebar (mis. 926px)
+      tidak match @media(max-width:768px), jadi grid produk
+      tetap pakai mode grid biasa & rule .card{flex:...}
+      sebelumnya jadi mubazir (tidak berefek).
+   3. .hero disesuaikan ke struktur baru (.hero-frame,
+      .hero-media, .hero-content) — dibuat wide/short (bukan
+      portrait) khusus untuk landscape, tanpa memaksa
+      min-height:100vh yang membuat hero baru jadi kosong
+      berlebih di bawah.
 ===================================================== */
 
 @media (orientation: landscape) and (max-width: 926px) and (max-height: 500px) {
@@ -975,21 +1069,51 @@ section {
         padding: 12px 20px;
     }
 
+    /* Hero: paksa balik ke overlay style meski lebar layar <=768px */
     .hero {
-        height: auto;
-        min-height: 100vh;
-        padding: 80px 20px 30px;
+        padding: 65px 20px 20px;
     }
 
-    .hero h1 {
-        font-size: clamp(20px, 5vw, 30px);
+    .hero-frame {
+        display: block;
+    }
+
+    .hero-media {
+        width: 100%;
+        max-width: 1200px;
+        aspect-ratio: 21 / 6;
+        margin: 0 auto;
+    }
+
+    .hero-media::after {
+        display: block;
+    }
+
+    .hero-content {
+        position: absolute;
+        left: 20px;
+        bottom: 16px;
+        text-align: left;
+        max-width: 340px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(18px, 4vw, 26px);
         letter-spacing: 2px;
     }
 
-    .hero p {
-        font-size: clamp(11px, 2.3vw, 13px);
-        margin: 10px 0;
-        line-height: 1.5;
+    .hero-content h1::after {
+        width: 40px;
+        height: 3px;
+        margin: 8px 0 0;
+    }
+
+    .hero-content p {
+        font-size: clamp(10px, 2vw, 12px);
+        margin: 8px 0 12px;
+        line-height: 1.4;
     }
 
     .btn {
@@ -998,7 +1122,10 @@ section {
     }
 
     .hero-dots {
-        bottom: 10px;
+        position: absolute;
+        right: 16px;
+        bottom: 12px;
+        justify-content: flex-end;
     }
 
     section {
@@ -1015,9 +1142,23 @@ section {
         margin-bottom: 18px;
     }
 
+    /* Pastikan grid produk pasti mode scroll-snap horizontal,
+       tidak bergantung breakpoint 768px */
+    .grid {
+        display: flex;
+        grid-template-columns: unset;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 15px;
+    }
+
     .card {
         flex: 0 0 60vw;
         max-width: 60vw;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
     }
 
     .card img {
@@ -1052,8 +1193,17 @@ section {
         line-height: 1.5;
     }
 
-    footer {
+    #footer {
         padding: 18px 20px;
+    }
+
+    #footer .footer-logo {
+        font-size: 18px;
+    }
+
+    #footer small,
+    .footer-col ul li a,
+    .footer-contact li {
         font-size: clamp(9px, 1.8vw, 11px);
     }
 
