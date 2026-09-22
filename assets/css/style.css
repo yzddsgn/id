@@ -149,9 +149,8 @@ header {
 }
 
 /* ===================================================
-   HERO — Erigo style: banner lebar, overlay teks kiri bawah,
-   dots di tengah bawah. Berlaku sama di desktop & mobile,
-   cuma proporsi tinggi foto & ukuran teks menyesuaikan.
+   HERO — Erigo style, foto tidak mepet layar, tanpa
+   background-color fallback, teks ganti sesuai foto (JS)
 =================================================== */
 .hero {
     background: #0d0d0d;
@@ -175,7 +174,7 @@ header {
     position: relative;
     overflow: hidden;
     border-radius: 4px;
-    background-color: #1a1a1a;
+    transition: background-image .4s ease-in-out;
 }
 
 .hero-media::after {
@@ -284,10 +283,10 @@ header {
     }
 }
 
-/* ---- Mobile: tetap banner lebar, tinggi mengecil bertahap ---- */
+/* ---- Mobile besar (iPhone 12/13/14 dst, 600px ke bawah) ---- */
 @media (max-width: 600px) {
     .hero {
-        padding: 95px 14px 30px;
+        padding: 95px 16px 30px;
     }
 
     .hero-media {
@@ -310,10 +309,10 @@ header {
     }
 }
 
-/* iPhone 4/5/SE (320px) */
-@media (max-width: 340px) {
+/* iPhone SE / iPhone 5 (375px & 320px) */
+@media (max-width: 400px) {
     .hero {
-        padding: 85px 10px 24px;
+        padding: 90px 14px 26px;
     }
 
     .hero-media {
@@ -321,9 +320,38 @@ header {
     }
 
     .hero-content {
-        left: 12px;
-        bottom: 16px;
+        left: 14px;
+        bottom: 18px;
         max-width: 84%;
+    }
+
+    .hero-content p {
+        font-size: 10.5px;
+    }
+}
+
+/* iPhone 4 / 5 (320px) — margin tetap terjaga, foto tidak mepet */
+@media (max-width: 340px) {
+    .hero {
+        padding: 85px 10px 22px;
+    }
+
+    .hero-media {
+        aspect-ratio: 4 / 5;
+    }
+
+    .hero-content {
+        left: 12px;
+        bottom: 14px;
+        max-width: 88%;
+    }
+
+    .hero-content h1 {
+        letter-spacing: 1px;
+    }
+
+    .btn {
+        padding: 9px 20px;
     }
 }
 
@@ -1057,7 +1085,7 @@ section {
     }
 
     .hero {
-        padding: 65px 20px 16px;
+        padding: 65px 16px 16px;
     }
 
     .hero-media {
