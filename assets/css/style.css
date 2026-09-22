@@ -105,9 +105,12 @@ header {
     cursor: pointer;
 }
 
-.cart img {
-    height: 20px;
-    width: 20px;
+/* ---- ICON SIZE RESPONSIVE: iPhone 4/5 s.d. device besar ---- */
+.cart img,
+.toggle img,
+.auth-btn img {
+    width: clamp(16px, 4.2vw, 20px);
+    height: clamp(16px, 4.2vw, 20px);
 }
 
 .toggle {
@@ -115,21 +118,11 @@ header {
     cursor: pointer;
 }
 
-.toggle img {
-    height: 20px;
-    width: 20px;
-}
-
 .auth-btn {
     border: none;
     background: none;
     color: inherit;
     cursor: pointer;
-}
-
-.auth-btn img {
-    height: 20px;
-    width: 20px;
 }
 
 .auth-btn:hover {
@@ -149,8 +142,7 @@ header {
 }
 
 /* ===================================================
-   HERO — Erigo style, jarak ke nav lebih dekat,
-   teks berganti sesuai foto (via JS)
+   HERO — Erigo style
 =================================================== */
 .hero {
     background: #0d0d0d;
@@ -222,23 +214,26 @@ header {
     max-width: 420px;
 }
 
-/* ---- BTN: animasi hover sederhana & elegan (sweep fill) ---- */
+/* ===================================================
+   BTN — style ala "Belanja Sekarang!" Erigo:
+   kotak solid, sudut membulat tipis, font Anton (vibes bold/hardcore)
+=================================================== */
 .btn {
     position: relative;
     display: inline-block;
-    padding: 11px 26px;
+    padding: 13px 30px;
     background: #b7ff00;
-    color: black;
-    font-weight: 800;
-    font-size: clamp(11px, 2.4vw, 15px);
+    color: #0d0d0d;
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(12px, 2.4vw, 16px);
     text-transform: uppercase;
     letter-spacing: 1px;
-    border: 2px solid #b7ff00;
-    border-radius: 4px;
-    clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+    border: none;
+    border-radius: 6px;
     overflow: hidden;
     z-index: 1;
-    transition: color .35s ease, letter-spacing .35s ease;
+    transition: color .3s ease, transform .15s ease;
 }
 
 .btn::before {
@@ -254,11 +249,14 @@ header {
 
 .btn:hover {
     color: #b7ff00;
-    letter-spacing: 1.5px;
 }
 
 .btn:hover::before {
     transform: scaleX(1);
+}
+
+.btn:active {
+    transform: scale(.97);
 }
 
 .hero-dots {
@@ -315,7 +313,6 @@ header {
     .hero-content {
         left: 16px;
         bottom: 34px;
-        /* dinaikkan supaya jarak ke dots lebih jauh */
         max-width: 80%;
     }
 
@@ -324,8 +321,9 @@ header {
     }
 
     .btn {
-        padding: 9px 20px;
-        font-size: 11px;
+        padding: 10px 22px;
+        font-size: 12px;
+        border-radius: 5px;
     }
 
     .hero-dots {
@@ -354,13 +352,9 @@ header {
     }
 
     .btn {
-        padding: 8px 18px;
-        font-size: 10.5px;
-        letter-spacing: .5px;
-    }
-
-    .btn:hover {
-        letter-spacing: 1px;
+        padding: 9px 20px;
+        font-size: 11.5px;
+        border-radius: 4px;
     }
 }
 
@@ -385,8 +379,8 @@ header {
     }
 
     .btn {
-        padding: 7px 16px;
-        font-size: 10px;
+        padding: 8px 18px;
+        font-size: 11px;
     }
 
     .hero-dots {
@@ -404,11 +398,12 @@ section {
 }
 
 /* ===================================================
-   SHOP SECTION — BACKGROUND PUTIH
+   SHOP SECTION — BACKGROUND PUTIH, jarak ke hero dipersempit
 =================================================== */
 #shop {
     background: #ffffff;
     color: #111111;
+    padding-top: 40px;
 }
 
 #shop .title {
