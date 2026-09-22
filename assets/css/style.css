@@ -66,6 +66,7 @@ header.nav-hidden {
 }
 
 .nav {
+    position: relative;
     max-width: 1200px;
     margin: auto;
     display: flex;
@@ -155,6 +156,11 @@ header.nav-hidden {
 
 .hidden {
     display: none !important;
+}
+
+/* ---- Close button inside mobile fullscreen menu (hidden on desktop) ---- */
+.menu-close {
+    display: none;
 }
 
 /* ===================================================
@@ -1068,7 +1074,8 @@ section {
 }
 
 /* ===================================================
-   MOBILE (<=768px): NAV — toggle kiri, logo tengah, actions kanan
+   MOBILE (<=768px): NAV — toggle kiri, logo BENAR-BENAR tengah,
+   actions kanan. Menu full-screen saat dibuka.
 =================================================== */
 @media (max-width: 768px) {
 
@@ -1082,35 +1089,79 @@ section {
         display: block;
         grid-column: 1;
         justify-self: start;
+        position: relative;
+        z-index: 2;
     }
 
+    /* Logo dilepas dari flow grid dan dipusatkan secara absolut
+       terhadap .nav, supaya posisinya benar-benar center
+       walau lebar .toggle dan .nav-actions berbeda. */
     .logo {
-        grid-column: 2;
-        justify-self: center;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        grid-column: unset;
+        z-index: 1;
     }
 
     .nav-actions {
         grid-column: 3;
         justify-self: end;
+        position: relative;
+        z-index: 2;
     }
 
+    /* ---- Menu full screen ---- */
     .menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
+        position: fixed;
+        inset: 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.85);
+        height: 100dvh;
+        background: rgba(0, 0, 0, 0.97);
         flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
         display: none;
-        padding: 20px;
-        font-size: clamp(14px, 4vw, 24px);
+        padding: 90px 28px 28px;
+        gap: clamp(20px, 5vw, 30px);
+        font-size: clamp(16px, 5.5vw, 26px);
         box-sizing: border-box;
-        z-index: 999;
-        grid-column: unset;
+        z-index: 1500;
+        overflow-y: auto;
     }
 
     .menu.show {
         display: flex;
+    }
+
+    .menu a {
+        width: 100%;
+        text-align: left;
+    }
+
+    .menu #logoutBtn.mm,
+    .menu button[id="logoutBtn mm"] {
+        align-self: flex-start;
+    }
+
+    /* ---- Close (X) button di dalam menu full screen ---- */
+    .menu-close {
+        display: flex;
+        position: absolute;
+        top: 22px;
+        right: 24px;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+    }
+
+    .menu-close img {
+        width: clamp(18px, 4.6vw, 22px);
+        height: clamp(18px, 4.6vw, 22px);
     }
 
     /* Home page: filter & grid horizontal-scroll snap */
@@ -1225,6 +1276,10 @@ section {
         flex: 0 0 calc(100vw - 44px);
         max-width: calc(100vw - 44px);
     }
+
+    .menu {
+        padding: 80px 20px 20px;
+    }
 }
 
 /* ===================================================
@@ -1321,5 +1376,9 @@ section {
 
     #footer .footer-logo {
         font-size: 18px;
+    }
+
+    .menu {
+        padding: 70px 24px 24px;
     }
 }
