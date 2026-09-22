@@ -581,6 +581,7 @@ section {
 .delete {
     width: 100%;
     padding: clamp(10px, 2.2vw, 12px);
+    margin-top: 5px;
     border: none;
     background: #df0a0a;
     color: white;
