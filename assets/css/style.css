@@ -351,12 +351,13 @@ header.nav-hidden {
    ABOUT (dalam hero, teks saja, tanpa foto)
 =================================================== */
 .hero-about {
-    background: #ffffff;
     padding: clamp(34px, 7vw, 60px) clamp(10px, 3vw, 20px) clamp(14px, 3vw, 24px);
+    text-align: center;
 }
 
 .hero-about-inner {
     max-width: 680px;
+    margin: 0 auto;
 }
 
 .hero-about-inner h1 {
@@ -375,7 +376,7 @@ header.nav-hidden {
     width: 46px;
     height: 3px;
     background: #b7ff00;
-    margin: 12px 0 18px;
+    margin: 12px auto 18px;
     border-radius: 2px;
 }
 
