@@ -53,14 +53,32 @@ function filterProduct(category, el) {
 
 
 
-const heroImages = [
-    "https://yzddsgn.github.io/id/assets/products/model/model 1.jpg",
-    "https://yzddsgn.github.io/id/assets/products/model/model 2.jpg",
-    "https://yzddsgn.github.io/id/assets/products/model/model 3.jpg",
-    "https://yzddsgn.github.io/id/assets/products/model/model 4.jpg"
+const heroSlides = [
+    {
+        image: "https://yzddsgn.github.io/id/assets/products/model/model 1.jpg",
+        title: "NEW ARRIVAL - GRAPHIC TEE",
+        text: "Desain grafis bold dengan sablon tahan lama, dibuat untuk yang berani tampil beda."
+    },
+    {
+        image: "https://yzddsgn.github.io/id/assets/products/model/model 2.jpg",
+        title: "NEW ARRIVAL - HARDCORE SERIES",
+        text: "Koleksi hardcore terbaru, cotton combed 24s tebal dan nyaman dipakai seharian."
+    },
+    {
+        image: "https://yzddsgn.github.io/id/assets/products/model/model 3.jpg",
+        title: "NEW ARRIVAL - CITY MAP EDITION",
+        text: "Rayakan kotamu lewat desain peta eksklusif, limited stock tiap kota."
+    },
+    {
+        image: "https://yzddsgn.github.io/id/assets/products/model/model 4.jpg",
+        title: "NEW ARRIVAL - DEATHCORE DROP",
+        text: "Statement piece untuk kamu yang enggak takut tampil gelap dan berkarakter."
+    }
 ];
 
-const hero = document.getElementById("home");
+const heroMedia = document.getElementById("heroMedia");
+const heroTitle = document.getElementById("heroTitle");
+const heroText = document.getElementById("heroText");
 const dots = document.querySelectorAll(".hero-dot");
 
 let currentSlide = 0;
@@ -71,8 +89,13 @@ function showSlide(index) {
 
     currentSlide = index;
 
-    hero.style.backgroundImage =
-        "url('" + heroImages[currentSlide] + "')";
+    const slide = heroSlides[currentSlide];
+
+    heroMedia.style.backgroundImage =
+        "url('" + slide.image + "')";
+
+    heroTitle.textContent = slide.title;
+    heroText.textContent = slide.text;
 
     dots.forEach((dot, i) => {
 
@@ -89,7 +112,7 @@ function nextSlide() {
 
     currentSlide++;
 
-    if (currentSlide >= heroImages.length) {
+    if (currentSlide >= heroSlides.length) {
         currentSlide = 0;
     }
 
