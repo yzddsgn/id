@@ -174,7 +174,7 @@ header.nav-hidden {
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
-    border-radius: 7px;
+    border-radius: 10px;
     transition: background-image .4s ease-in-out;
 }
 
