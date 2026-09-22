@@ -50,9 +50,14 @@ header {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(183, 255, 0, .15);
     z-index: 1000;
+    transition: transform .35s ease;
 }
 
-/* ---- NAV: padding pakai clamp, menyesuaikan semua device ---- */
+/* ---- NAV HIDE/SHOW ON SCROLL (mobile only, via JS) ---- */
+header.nav-hidden {
+    transform: translateY(-100%);
+}
+
 .nav {
     max-width: 1200px;
     margin: auto;
@@ -63,7 +68,6 @@ header {
     gap: clamp(8px, 2vw, 15px);
 }
 
-/* ---- LOGO: sekarang berupa gambar, tinggi clamp ---- */
 .logo {
     display: flex;
     align-items: center;
@@ -111,7 +115,6 @@ header {
     cursor: pointer;
 }
 
-/* ---- ICON SIZE: clamp, iPhone 4/5 s.d. device besar ---- */
 .cart img,
 .toggle img,
 .auth-btn img {
@@ -148,7 +151,7 @@ header {
 }
 
 /* ===================================================
-   HERO — Erigo style, semua ukuran/jarak pakai clamp
+   HERO — Erigo style
 =================================================== */
 .hero {
     background: #ffffff;
@@ -221,7 +224,7 @@ header {
 }
 
 /* ===================================================
-   BTN — style ala "Belanja Sekarang!" Erigo, clamp semua ukuran
+   BTN
 =================================================== */
 .btn {
     position: relative;
@@ -297,7 +300,6 @@ header {
     transform: scale(1.3);
 }
 
-/* ---- Struktural: aspect-ratio foto berubah bentuk per breakpoint (bukan cuma ukuran) ---- */
 @media (max-width: 1024px) {
     .hero-media {
         aspect-ratio: 16 / 10;
@@ -349,7 +351,7 @@ section {
 }
 
 /* ===================================================
-   SHOP SECTION — BACKGROUND PUTIH
+   SHOP SECTION — BACKGROUND PUTIH (dipakai di Home & Shop page)
 =================================================== */
 #shop {
     background: #ffffff;
@@ -410,7 +412,7 @@ section {
 }
 
 /* ===================================================
-   TITLES / FILTER — semua ukuran clamp
+   TITLES / FILTER
 =================================================== */
 .title {
     font-family: 'Anton', sans-serif;
@@ -458,7 +460,7 @@ section {
 }
 
 /* ===================================================
-   PRODUCT GRID — clamp untuk gap
+   PRODUCT GRID (default — Home page, auto-fit)
 =================================================== */
 .grid {
     display: grid;
@@ -527,6 +529,118 @@ section {
 }
 
 /* ===================================================
+   SHOP PAGE LAYOUT — filter kiri (vertikal), grid kanan 3 kolom
+=================================================== */
+.shop-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(20px, 3vw, 36px);
+}
+
+.shop-sidebar {
+    flex: 0 0 clamp(160px, 18vw, 220px);
+    position: sticky;
+    top: clamp(80px, 10vw, 100px);
+}
+
+.shop-sidebar .title,
+.shop-sidebar .subtitle {
+    margin-bottom: clamp(14px, 2.5vw, 20px);
+}
+
+.shop-sidebar .filter {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: clamp(8px, 1.6vw, 12px);
+    margin-bottom: 0;
+}
+
+.shop-sidebar .filter button {
+    width: 100%;
+    text-align: left;
+}
+
+.shop-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.shop-content .grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* ---- Tablet: grid 2 kolom, sidebar tetap kiri ---- */
+@media (max-width: 1024px) {
+    .shop-content .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---- Mobile: sidebar jadi filter horizontal di atas, grid di bawah ---- */
+@media (max-width: 768px) {
+    .shop-layout {
+        flex-direction: column;
+    }
+
+    .shop-sidebar {
+        position: static;
+        width: 100%;
+        flex: unset;
+    }
+
+    .shop-sidebar .filter {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 14px;
+        scrollbar-width: thin;
+        scrollbar-color: #b7ff00 #e5e5e5;
+    }
+
+    .shop-sidebar .filter::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .shop-sidebar .filter::-webkit-scrollbar-track {
+        background: #e5e5e5;
+        border-radius: 10px;
+    }
+
+    .shop-sidebar .filter::-webkit-scrollbar-thumb {
+        background: #b7ff00;
+        border-radius: 10px;
+    }
+
+    .shop-sidebar .filter button {
+        width: auto;
+        text-align: center;
+        scroll-snap-align: start;
+    }
+
+    .shop-content .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---- Mobile kecil: grid jadi 1 kolom ---- */
+@media (max-width: 480px) {
+    .shop-content .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* iPhone 4/5 (320px) */
+@media (max-width: 340px) {
+    .shop-sidebar .filter button {
+        padding: 8px 14px;
+        font-size: 11px;
+    }
+}
+
+/* ===================================================
    ABOUT — BACKGROUND HITAM
 =================================================== */
 #about {
@@ -554,7 +668,6 @@ section {
     line-height: 1.8;
 }
 
-/* struktural: about jadi 1 kolom di mobile */
 @media (max-width: 768px) {
     .about {
         grid-template-columns: 1fr;
@@ -562,7 +675,7 @@ section {
 }
 
 /* ===================================================
-   FOOTER — semua ukuran clamp
+   FOOTER
 =================================================== */
 #footer {
     background-color: #050505;
@@ -730,7 +843,6 @@ section {
     letter-spacing: 0.5px;
 }
 
-/* struktural: footer-top jadi 2 kolom lalu 1 kolom */
 @media (max-width: 1024px) {
     .footer-top {
         grid-template-columns: 1fr 1fr;
@@ -776,7 +888,6 @@ section {
 
 /* ===================================================
    MOBILE (<=768px): NAV — toggle kiri, logo tengah, actions kanan
-   (struktural, tetap pakai breakpoint)
 =================================================== */
 @media (max-width: 768px) {
 
@@ -821,8 +932,9 @@ section {
         display: flex;
     }
 
-    /* ---- FILTER: horizontal scroll + snap (struktural) ---- */
-    .filter {
+    /* Home page: filter & grid horizontal-scroll snap */
+    #home~#shop .filter,
+    section#shop:not(:has(.shop-layout)) .filter {
         flex-wrap: nowrap;
         overflow-x: auto;
         overflow-y: hidden;
@@ -831,37 +943,28 @@ section {
         padding-bottom: 14px;
         margin-bottom: 20px;
         scrollbar-width: thin;
-        scrollbar-color: #b7ff00 #2a2a2a;
-    }
-
-    #shop .filter {
         scrollbar-color: #b7ff00 #e5e5e5;
     }
 
-    .filter button {
+    section#shop:not(:has(.shop-layout)) .filter button {
         scroll-snap-align: start;
     }
 
-    .filter::-webkit-scrollbar {
+    section#shop:not(:has(.shop-layout)) .filter::-webkit-scrollbar {
         height: 5px;
     }
 
-    .filter::-webkit-scrollbar-track {
-        background: #2a2a2a;
+    section#shop:not(:has(.shop-layout)) .filter::-webkit-scrollbar-track {
+        background: #e5e5e5;
         border-radius: 10px;
     }
 
-    #shop .filter::-webkit-scrollbar-track {
-        background: #e5e5e5;
-    }
-
-    .filter::-webkit-scrollbar-thumb {
+    section#shop:not(:has(.shop-layout)) .filter::-webkit-scrollbar-thumb {
         background: #b7ff00;
         border-radius: 10px;
     }
 
-    /* ---- GRID: horizontal scroll, 1 card = 1 layar, snap magnet (struktural) ---- */
-    .grid {
+    section#shop:not(:has(.shop-layout)) .grid {
         display: flex;
         grid-template-columns: unset;
         overflow-x: auto;
@@ -874,55 +977,45 @@ section {
         padding-left: 20px;
         padding-right: 20px;
         scrollbar-width: thin;
-        scrollbar-color: #b7ff00 #2a2a2a;
-    }
-
-    #shop .grid {
         scrollbar-color: #b7ff00 #e5e5e5;
     }
 
-    .grid::-webkit-scrollbar {
+    section#shop:not(:has(.shop-layout)) .grid::-webkit-scrollbar {
         height: 6px;
     }
 
-    .grid::-webkit-scrollbar-track {
-        background: #2a2a2a;
+    section#shop:not(:has(.shop-layout)) .grid::-webkit-scrollbar-track {
+        background: #e5e5e5;
         border-radius: 10px;
         margin: 0 20px;
     }
 
-    #shop .grid::-webkit-scrollbar-track {
-        background: #e5e5e5;
-    }
-
-    .grid::-webkit-scrollbar-thumb {
+    section#shop:not(:has(.shop-layout)) .grid::-webkit-scrollbar-thumb {
         background: #b7ff00;
         border-radius: 10px;
         border: 1px solid rgba(0, 0, 0, .15);
     }
 
-    .card {
+    section#shop:not(:has(.shop-layout)) .card {
         flex: 0 0 calc(100vw - 60px);
         max-width: calc(100vw - 60px);
         scroll-snap-align: center;
         scroll-snap-stop: always;
     }
 
-    .card img {
+    section#shop:not(:has(.shop-layout)) .card img {
         height: 62vw;
         max-height: 380px;
     }
 }
 
-/* iPhone 4/5 (320px) — margin card tetap terjaga (struktural) */
 @media (max-width: 340px) {
-
-    .card {
+    section#shop:not(:has(.shop-layout)) .card {
         flex: 0 0 calc(100vw - 44px);
         max-width: calc(100vw - 44px);
     }
 
-    .grid {
+    section#shop:not(:has(.shop-layout)) .grid {
         margin: 0 -16px;
         padding-left: 16px;
         padding-right: 16px;
@@ -930,8 +1023,7 @@ section {
 }
 
 /* ===================================================
-   LANDSCAPE LOCK — struktural (orientasi berubah, bukan
-   sekadar ukuran layar), tetap pakai media query khusus
+   LANDSCAPE LOCK
 =================================================== */
 @media (orientation: landscape) and (max-width: 926px) and (max-height: 500px) {
 
@@ -990,32 +1082,6 @@ section {
     .subtitle {
         font-size: clamp(11px, 2vw, 13px);
         margin-bottom: 18px;
-    }
-
-    .grid {
-        display: flex;
-        grid-template-columns: unset;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 15px;
-    }
-
-    .card {
-        flex: 0 0 60vw;
-        max-width: 60vw;
-        scroll-snap-align: center;
-        scroll-snap-stop: always;
-    }
-
-    .card img {
-        height: 40vw;
-        max-height: 200px;
-    }
-
-    .info {
-        padding: 12px;
     }
 
     .about {
