@@ -66,12 +66,12 @@ const heroSlides = [
     },
     {
         image: "https://yzddsgn.github.io/id/assets/products/model/model 3.jpg",
-        title: "جاكرتــــــا بقت مزعجــــــة أوي - JAKARTA IS TOO NOISY",
+        title: "جاكرتــــــا بقت مزعجــــــة أوي",
         text: "Jakarta bukan hanya ramai oleh kendaraan dan gedung tinggi, tetapi juga oleh suara penilaian, gosip, dan orang-orang yang terlalu sibuk mengawasi kehidupan orang lain."
     },
     {
         image: "https://yzddsgn.github.io/id/assets/products/model/model 4.jpg",
-        title: "جاكرتــــــا بقت مزعجــــــة أوي - GRAPHIC EDITION",
+        title: "GRAPHIC EDITION",
         text: "Desain ini merepresentasikan tekanan hidup di lingkungan yang penuh komentar dan rasa iri."
     }
 ];
