@@ -149,12 +149,12 @@ header {
 }
 
 /* ===================================================
-   HERO — Erigo style, foto tidak mepet layar, tanpa
-   background-color fallback, teks ganti sesuai foto (JS)
+   HERO — Erigo style, jarak ke nav lebih dekat,
+   teks berganti sesuai foto (via JS)
 =================================================== */
 .hero {
     background: #0d0d0d;
-    padding: 120px 20px 40px;
+    padding: 100px 20px 40px;
     display: flex;
     justify-content: center;
 }
@@ -222,7 +222,9 @@ header {
     max-width: 420px;
 }
 
+/* ---- BTN: animasi hover sederhana & elegan (sweep fill) ---- */
 .btn {
+    position: relative;
     display: inline-block;
     padding: 11px 26px;
     background: #b7ff00;
@@ -234,13 +236,29 @@ header {
     border: 2px solid #b7ff00;
     border-radius: 4px;
     clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
-    transition: .25s ease;
+    overflow: hidden;
+    z-index: 1;
+    transition: color .35s ease, letter-spacing .35s ease;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #0d0d0d;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+    z-index: -1;
 }
 
 .btn:hover {
-    background: transparent;
     color: #b7ff00;
-    transform: scale(1.05);
+    letter-spacing: 1.5px;
+}
+
+.btn:hover::before {
+    transform: scaleX(1);
 }
 
 .hero-dots {
@@ -286,7 +304,7 @@ header {
 /* ---- Mobile besar (iPhone 12/13/14 dst, 600px ke bawah) ---- */
 @media (max-width: 600px) {
     .hero {
-        padding: 95px 16px 30px;
+        padding: 85px 16px 30px;
     }
 
     .hero-media {
@@ -296,12 +314,18 @@ header {
 
     .hero-content {
         left: 16px;
-        bottom: 20px;
+        bottom: 34px;
+        /* dinaikkan supaya jarak ke dots lebih jauh */
         max-width: 80%;
     }
 
     .hero-content p {
         margin: 6px 0 12px;
+    }
+
+    .btn {
+        padding: 9px 20px;
+        font-size: 11px;
     }
 
     .hero-dots {
@@ -312,7 +336,7 @@ header {
 /* iPhone SE / iPhone 5 (375px & 320px) */
 @media (max-width: 400px) {
     .hero {
-        padding: 90px 14px 26px;
+        padding: 80px 14px 26px;
     }
 
     .hero-media {
@@ -321,19 +345,29 @@ header {
 
     .hero-content {
         left: 14px;
-        bottom: 18px;
+        bottom: 30px;
         max-width: 84%;
     }
 
     .hero-content p {
         font-size: 10.5px;
     }
+
+    .btn {
+        padding: 8px 18px;
+        font-size: 10.5px;
+        letter-spacing: .5px;
+    }
+
+    .btn:hover {
+        letter-spacing: 1px;
+    }
 }
 
-/* iPhone 4 / 5 (320px) — margin tetap terjaga, foto tidak mepet */
+/* iPhone 4 / 5 (320px) — margin tetap terjaga, jarak ke dots dijaga */
 @media (max-width: 340px) {
     .hero {
-        padding: 85px 10px 22px;
+        padding: 75px 10px 22px;
     }
 
     .hero-media {
@@ -342,7 +376,7 @@ header {
 
     .hero-content {
         left: 12px;
-        bottom: 14px;
+        bottom: 26px;
         max-width: 88%;
     }
 
@@ -351,7 +385,12 @@ header {
     }
 
     .btn {
-        padding: 9px 20px;
+        padding: 7px 16px;
+        font-size: 10px;
+    }
+
+    .hero-dots {
+        bottom: 8px;
     }
 }
 
