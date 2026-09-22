@@ -14,6 +14,9 @@
 
     <header>
         <div class="nav">
+            <div class="toggle" onclick="toggleMenu()">
+                <img src="https://yzddsgn.github.io/id/assets/icon/MENU.png">
+            </div>
             <div class="logo">YZD <span>DSGN</span></div>
             <div class="menu" id="menu">
                 <a href="https://yzddsgn.github.io/id/home/" id="active">Home</a>
@@ -25,7 +28,7 @@
                 </button>
             </div>
 
-            <div style="display:flex;gap:15px;align-items:center;">
+            <div class="nav-actions">
                 <a href="https://yzddsgn.github.io/id/cart/">
                     <div class="cart">
                         <img src="https://yzddsgn.github.io/id/assets/icon/CART.png">
@@ -37,29 +40,26 @@
                 <button id="logoutBtn" class="auth-btn hidden">
                     <img src="https://yzddsgn.github.io/id/assets/icon/LOGOUT.png">
                 </button>
-                <div class="toggle" onclick="toggleMenu()">
-                    <img src="https://yzddsgn.github.io/id/assets/icon/MENU.png">
-                </div>
             </div>
         </div>
     </header>
 
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>YZD DSGN</h1>
-            <p>
-                Streetwear lokal untuk anak muda.
-                Minimalis, berani, dan dibuat untuk dipakai setiap hari.
-            </p>
-            <a href="#shop" class="btn">
-                BELANJA SEKARANG
-            </a>
-        </div>
-        <div class="hero-dots">
-            <button class="hero-dot active" data-slide="0"></button>
-            <button class="hero-dot" data-slide="1"></button>
-            <button class="hero-dot" data-slide="2"></button>
-            <button class="hero-dot" data-slide="3"></button>
+        <div class="hero-frame">
+            <div class="hero-media" style="background-image:url('');"></div>
+
+            <div class="hero-content">
+                <h1>YZD DSGN</h1>
+                <p>Streetwear lokal untuk anak muda. Minimalis, berani, dan dibuat untuk dipakai setiap hari.</p>
+                <a href="#shop" class="btn">BELANJA SEKARANG</a>
+            </div>
+
+            <div class="hero-dots">
+                <button class="hero-dot active" data-slide="0"></button>
+                <button class="hero-dot" data-slide="1"></button>
+                <button class="hero-dot" data-slide="2"></button>
+                <button class="hero-dot" data-slide="3"></button>
+            </div>
         </div>
     </section>
 
