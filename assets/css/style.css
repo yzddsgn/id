@@ -128,6 +128,7 @@ header.nav-hidden {
 .auth-btn img {
     width: clamp(16px, 4.2vw, 20px);
     height: clamp(16px, 4.2vw, 20px);
+    display: block;
 }
 
 .toggle {
@@ -1086,7 +1087,9 @@ section {
     }
 
     .toggle {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         grid-column: 1;
         justify-self: start;
         position: relative;
@@ -1123,7 +1126,7 @@ section {
         align-items: flex-start;
         justify-content: flex-start;
         display: none;
-        padding: 90px 28px 28px;
+        padding: clamp(90px, 20vw, 110px) 28px 28px;
         gap: clamp(20px, 5vw, 30px);
         font-size: clamp(16px, 5.5vw, 26px);
         box-sizing: border-box;
@@ -1145,18 +1148,18 @@ section {
         align-self: flex-start;
     }
 
-    /* ---- Close (X) button di dalam menu full screen ---- */
+    /* ---- Close (X) button di dalam menu full screen ----
+       Diletakkan sejajar/urut sama seperti .menu a: rata kiri,
+       ikut flow flex column .menu, bukan absolute lagi. */
     .menu-close {
         display: flex;
-        position: absolute;
-        top: 22px;
-        right: 24px;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        width: 100%;
         background: none;
         border: none;
         cursor: pointer;
-        padding: 6px;
+        padding: 0;
     }
 
     .menu-close img {
