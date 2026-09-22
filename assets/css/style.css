@@ -32,9 +32,16 @@ img {
     user-select: none;
 }
 
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     background: #0d0d0d;
     color: white;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 a {
@@ -819,6 +826,7 @@ section {
     font-size: clamp(12.5px, 2.4vw, 14px);
     line-height: 1.65;
     color: #555555;
+
     display: -webkit-box;
     -webkit-line-clamp: 3;
     line-clamp: 3;
