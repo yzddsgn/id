@@ -149,11 +149,13 @@ header {
 }
 
 /* ===================================================
-   HERO — Erigo style (overlay konsisten desktop & mobile)
+   HERO — Erigo style: banner lebar, overlay teks kiri bawah,
+   dots di tengah bawah. Berlaku sama di desktop & mobile,
+   cuma proporsi tinggi foto & ukuran teks menyesuaikan.
 =================================================== */
 .hero {
     background: #0d0d0d;
-    padding: 130px 20px 50px;
+    padding: 120px 20px 40px;
     display: flex;
     justify-content: center;
 }
@@ -166,7 +168,7 @@ header {
 
 .hero-media {
     width: 100%;
-    aspect-ratio: 21 / 9;
+    aspect-ratio: 16 / 8;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -180,14 +182,14 @@ header {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .35) 32%, rgba(0, 0, 0, 0) 60%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, .75) 0%, rgba(0, 0, 0, .3) 35%, rgba(0, 0, 0, 0) 62%);
     pointer-events: none;
 }
 
 .hero-content {
     position: absolute;
-    left: 24px;
-    bottom: 28px;
+    left: 28px;
+    bottom: 44px;
     z-index: 2;
     max-width: 460px;
     text-align: left;
@@ -195,37 +197,39 @@ header {
 
 .hero-content h1 {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(20px, 4.2vw, 54px);
+    font-size: clamp(18px, 3.2vw, 40px);
     font-weight: 400;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #fff;
     text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+    line-height: 1.15;
 }
 
 .hero-content h1::after {
     content: "";
     display: block;
-    width: 44px;
+    width: 40px;
     height: 3px;
     background: #b7ff00;
-    margin: 12px 0 0;
+    margin: 10px 0 0;
 }
 
 .hero-content p {
-    font-size: clamp(11px, 1.6vw, 16px);
-    margin: 12px 0 18px;
+    font-size: clamp(10.5px, 1.3vw, 15px);
+    margin: 10px 0 16px;
     line-height: 1.6;
     color: #e2e2e2;
+    max-width: 420px;
 }
 
 .btn {
     display: inline-block;
-    padding: 12px 28px;
+    padding: 11px 26px;
     background: #b7ff00;
     color: black;
     font-weight: 800;
-    font-size: clamp(11.5px, 2.6vw, 16px);
+    font-size: clamp(11px, 2.4vw, 15px);
     text-transform: uppercase;
     letter-spacing: 1px;
     border: 2px solid #b7ff00;
@@ -242,16 +246,18 @@ header {
 
 .hero-dots {
     position: absolute;
-    right: 20px;
-    bottom: 18px;
+    left: 0;
+    right: 0;
+    bottom: 14px;
     z-index: 2;
     display: flex;
+    justify-content: center;
     gap: 8px;
 }
 
 .hero-dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     padding: 0;
     margin: 0;
     border: 0;
@@ -267,51 +273,57 @@ header {
 }
 
 .hero-dot.active {
-    background: #b7ff00;
+    background: #fff;
     transform: scale(1.3);
 }
 
-/* ---- Mobile: overlay tetap, cuma proporsi foto & ukuran teks menyesuaikan ---- */
+/* ---- Tablet ---- */
+@media (max-width: 1024px) {
+    .hero-media {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+/* ---- Mobile: tetap banner lebar, tinggi mengecil bertahap ---- */
 @media (max-width: 600px) {
     .hero {
-        padding: 100px 14px 40px;
+        padding: 95px 14px 30px;
     }
 
     .hero-media {
-        aspect-ratio: 4 / 5;
+        aspect-ratio: 4 / 3;
         border-radius: 6px;
     }
 
     .hero-content {
         left: 16px;
-        bottom: 18px;
-        max-width: 78%;
+        bottom: 20px;
+        max-width: 80%;
     }
 
     .hero-content p {
-        margin: 8px 0 14px;
+        margin: 6px 0 12px;
     }
 
     .hero-dots {
-        right: 14px;
-        bottom: 12px;
+        bottom: 10px;
     }
 }
 
 /* iPhone 4/5/SE (320px) */
 @media (max-width: 340px) {
     .hero {
-        padding: 90px 10px 32px;
+        padding: 85px 10px 24px;
     }
 
     .hero-media {
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 1 / 1;
     }
 
     .hero-content {
         left: 12px;
-        bottom: 14px;
-        max-width: 82%;
+        bottom: 16px;
+        max-width: 84%;
     }
 }
 
@@ -1003,10 +1015,6 @@ section {
         height: 65vw;
     }
 
-    .hero-content h1 {
-        letter-spacing: 1px;
-    }
-
 }
 
 /* iPhone 4 (320x480) & iPhone 5/SE (320x568) — card lebih pas */
@@ -1049,47 +1057,42 @@ section {
     }
 
     .hero {
-        padding: 65px 20px 20px;
+        padding: 65px 20px 16px;
     }
 
     .hero-media {
-        width: 100%;
-        max-width: 1200px;
         aspect-ratio: 21 / 6;
-        margin: 0 auto;
     }
 
     .hero-content {
         left: 20px;
         bottom: 16px;
-        max-width: 340px;
+        max-width: 320px;
     }
 
     .hero-content h1 {
-        font-size: clamp(18px, 4vw, 26px);
-        letter-spacing: 2px;
+        font-size: clamp(16px, 3.4vw, 22px);
     }
 
     .hero-content h1::after {
-        width: 40px;
+        width: 34px;
         height: 3px;
-        margin: 8px 0 0;
+        margin: 6px 0 0;
     }
 
     .hero-content p {
-        font-size: clamp(10px, 2vw, 12px);
-        margin: 8px 0 12px;
+        font-size: clamp(9.5px, 1.8vw, 11px);
+        margin: 6px 0 10px;
         line-height: 1.4;
     }
 
     .btn {
-        padding: 9px 22px;
-        font-size: clamp(11px, 2.3vw, 13px);
+        padding: 8px 20px;
+        font-size: clamp(10px, 2.1vw, 12px);
     }
 
     .hero-dots {
-        right: 16px;
-        bottom: 12px;
+        bottom: 8px;
     }
 
     section {
