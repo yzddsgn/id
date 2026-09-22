@@ -817,36 +817,9 @@ function loadCart() {
 
     if (cart.length === 0) {
 
-        var emptyStateStyle = document.getElementById(
-            "cartEmptyStyle"
-        );
-
-        if (!emptyStateStyle) {
-
-            emptyStateStyle = document.createElement("style");
-
-            emptyStateStyle.id = "cartEmptyStyle";
-
-            emptyStateStyle.textContent = `
-
-            @media (max-width: 768px) {
-
-                .cart-empty h2,
-                .cart-empty p {
-
-                    text-align: center;
-                }
-
-            }
-
-        `;
-
-            document.head.appendChild(emptyStateStyle);
-        }
-
         container.innerHTML = `
 
-            <div class="cart-empty" style="
+            <div style="
                 grid-column: 1 / -1;
                 text-align: center;
                 padding: 60px 20px;
