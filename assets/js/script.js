@@ -56,23 +56,23 @@ function filterProduct(category, el) {
 const heroSlides = [
     {
         image: "https://yzddsgn.github.io/id/assets/products/model/model 1.jpg",
-        title: "NEW ARRIVAL - GRAPHIC TEE",
-        text: "Desain grafis bold dengan sablon tahan lama, dibuat untuk yang berani tampil beda."
+        title: "BDG - EST. 1810",
+        text: "Bandung lahir pada 25 September 1810, ketika Bupati R.A. Wiranatakusumah II."
     },
     {
         image: "https://yzddsgn.github.io/id/assets/products/model/model 2.jpg",
-        title: "NEW ARRIVAL - HARDCORE SERIES",
-        text: "Koleksi hardcore terbaru, cotton combed 24s tebal dan nyaman dipakai seharian."
+        title: "BANDUNG - CITY MAP EDITION",
+        text: "Desain ini mengusung konsep minimalis urban dengan identitas kota Bandung sebagai fokus utama."
     },
     {
         image: "https://yzddsgn.github.io/id/assets/products/model/model 3.jpg",
-        title: "NEW ARRIVAL - CITY MAP EDITION",
-        text: "Rayakan kotamu lewat desain peta eksklusif, limited stock tiap kota."
+        title: "جاكرتــــــا بقت مزعجــــــة أوي - JAKARTA IS TOO NOISY",
+        text: "Jakarta bukan hanya ramai oleh kendaraan dan gedung tinggi, tetapi juga oleh suara penilaian, gosip, dan orang-orang yang terlalu sibuk mengawasi kehidupan orang lain."
     },
     {
         image: "https://yzddsgn.github.io/id/assets/products/model/model 4.jpg",
-        title: "NEW ARRIVAL - DEATHCORE DROP",
-        text: "Statement piece untuk kamu yang enggak takut tampil gelap dan berkarakter."
+        title: "جاكرتــــــا بقت مزعجــــــة أوي - GRAPHIC EDITION",
+        text: "Desain ini merepresentasikan tekanan hidup di lingkungan yang penuh komentar dan rasa iri."
     }
 ];
 
