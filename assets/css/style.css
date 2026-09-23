@@ -942,26 +942,6 @@ section {
     .shop-content .grid.grid {
         grid-template-columns: 1fr !important;
     }
-
-    /* Card produk Shop dibuat full-bleed selebar layar device
-       (bukan cuma selebar .container yang ada padding-nya).
-       Trik "break out" pakai calc(50% - 50vw) supaya .grid
-       keluar dari batas .container/.shop-layout dan jadi
-       100vw persis, lalu card (1 kolom penuh) otomatis ikut
-       selebar itu. */
-    .shop-content .grid {
-        width: 100vw;
-        margin-left: calc(50% - 50vw);
-        margin-right: calc(50% - 50vw);
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .shop-content .grid .card {
-        width: 100%;
-        max-width: 100%;
-        flex-basis: auto;
-    }
 }
 
 /* Shop page grid: 1 kolom di semua ukuran mobile
