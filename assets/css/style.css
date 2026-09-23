@@ -942,6 +942,40 @@ section {
     .shop-content .grid.grid {
         grid-template-columns: 1fr !important;
     }
+
+    /* .shop-layout punya align-items:flex-start (dipakai untuk versi
+       desktop), tapi itu bikin lebar .shop-content di mobile jadi
+       tidak stabil (shrink-to-fit), sehingga breakout berbasis
+       persentase di .grid meleset. Di-reset ke stretch supaya
+       .shop-content pasti selebar penuh container-nya. */
+    .shop-layout {
+        align-items: stretch;
+    }
+
+    /* Card produk Shop dibuat full-bleed selebar layar device
+       (bukan cuma selebar .container yang ada padding-nya).
+       CATATAN: sebelumnya dipakai trik "break out" calc(50% - 50vw),
+       tapi itu meleset karena .shop-content punya lebar yang tidak
+       stabil (lihat catatan align-items di atas), jadi 50% di rumus
+       tidak lagi merujuk ke lebar container yang benar. Solusi yang
+       stabil: batalkan langsung padding kiri-kanan milik <section>
+       (clamp(12px, 2.2vw, 18px)) pakai margin negatif dengan nilai
+       persis sama — tidak bergantung pada lebar parent yang bisa
+       berubah karena flex/grid, jadi hasilnya konsisten. */
+    .shop-content .grid {
+        width: auto;
+        margin-left: calc(-1 * clamp(12px, 2.2vw, 18px));
+        margin-right: calc(-1 * clamp(12px, 2.2vw, 18px));
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .shop-content .grid .card {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: unset !important;
+        flex-basis: auto !important;
+    }
 }
 
 /* Shop page grid: 1 kolom di semua ukuran mobile
