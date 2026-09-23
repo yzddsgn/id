@@ -886,7 +886,7 @@ section {
 @media (max-width: 1024px) {
     .shop-content .grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 18px;
     }
 }
 
