@@ -67,12 +67,12 @@ header.nav-hidden {
 
 .nav {
     position: relative;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: clamp(12px, 2.4vw, 18px) clamp(14px, 3vw, 20px);
+    padding: clamp(10px, 1.6vw, 13px) clamp(14px, 2vw, 18px);
     gap: clamp(8px, 2vw, 15px);
 }
 
@@ -82,7 +82,7 @@ header.nav-hidden {
 }
 
 .logo img {
-    height: clamp(22px, 5.5vw, 32px);
+    height: clamp(20px, 3.2vw, 24px);
     width: auto;
     display: block;
 }
@@ -93,8 +93,8 @@ header.nav-hidden {
 
 .menu {
     display: flex;
-    gap: clamp(14px, 3vw, 25px);
-    font-size: clamp(11px, 2.6vw, 16px);
+    gap: clamp(14px, 2.2vw, 20px);
+    font-size: clamp(11px, 1.6vw, 13px);
     text-transform: uppercase;
     letter-spacing: .5px;
 }
@@ -115,7 +115,7 @@ header.nav-hidden {
 
 .nav-actions {
     display: flex;
-    gap: clamp(10px, 2.4vw, 15px);
+    gap: clamp(10px, 1.6vw, 13px);
     align-items: center;
 }
 
@@ -126,8 +126,8 @@ header.nav-hidden {
 .cart img,
 .toggle img,
 .auth-btn img {
-    width: clamp(16px, 4.2vw, 20px);
-    height: clamp(16px, 4.2vw, 20px);
+    width: clamp(15px, 2.4vw, 17px);
+    height: clamp(15px, 2.4vw, 17px);
     display: block;
 }
 
@@ -169,13 +169,13 @@ header.nav-hidden {
 =================================================== */
 .hero {
     background: #ffffff;
-    padding: clamp(60px, 10vw, 78px) clamp(10px, 3vw, 20px) clamp(22px, 6vw, 40px);
+    padding: clamp(56px, 7vw, 64px) clamp(10px, 2.2vw, 16px) clamp(18px, 4vw, 28px);
 }
 
 .hero-frame {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -201,16 +201,16 @@ header.nav-hidden {
 
 .hero-content {
     position: absolute;
-    left: clamp(12px, 2.4vw, 28px);
-    bottom: clamp(26px, 5vw, 44px);
+    left: clamp(12px, 2vw, 24px);
+    bottom: clamp(22px, 3.6vw, 32px);
     z-index: 2;
-    max-width: 460px;
+    max-width: 400px;
     text-align: left;
 }
 
 .hero-content h1 {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(18px, 3.2vw, 40px);
+    font-size: clamp(18px, 2.4vw, 28px);
     font-weight: 400;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -222,18 +222,18 @@ header.nav-hidden {
 .hero-content h1::after {
     content: "";
     display: block;
-    width: 40px;
+    width: 34px;
     height: 3px;
     background: #b7ff00;
-    margin: 10px 0 0;
+    margin: 8px 0 0;
 }
 
 .hero-content p {
-    font-size: clamp(10.5px, 1.3vw, 15px);
-    margin: 10px 0 clamp(12px, 2.5vw, 16px);
+    font-size: clamp(10.5px, 1vw, 13px);
+    margin: 8px 0 clamp(10px, 1.8vw, 13px);
     line-height: 1.6;
     color: #e2e2e2;
-    max-width: 420px;
+    max-width: 380px;
 }
 
 /* ===================================================
@@ -242,16 +242,16 @@ header.nav-hidden {
 .btn {
     position: relative;
     display: inline-block;
-    padding: clamp(8px, 2vw, 13px) clamp(18px, 4vw, 30px);
+    padding: clamp(8px, 1.4vw, 10px) clamp(16px, 2.6vw, 22px);
     background: #b7ff00;
     color: #0d0d0d;
     font-family: 'Anton', sans-serif;
     font-weight: 400;
-    font-size: clamp(11px, 2.4vw, 16px);
+    font-size: clamp(11px, 1.6vw, 13px);
     text-transform: uppercase;
     letter-spacing: 1px;
     border: none;
-    border-radius: clamp(4px, 1vw, 6px);
+    border-radius: clamp(4px, 0.8vw, 5px);
     overflow: hidden;
     z-index: 1;
     transition: color .3s ease, transform .15s ease;
@@ -358,18 +358,18 @@ header.nav-hidden {
    ABOUT (dalam hero, teks saja, tanpa foto)
 =================================================== */
 .hero-about {
-    padding: clamp(34px, 7vw, 60px) clamp(10px, 3vw, 20px) clamp(14px, 3vw, 24px);
+    padding: clamp(30px, 5vw, 44px) clamp(10px, 2.2vw, 16px) clamp(12px, 2.2vw, 18px);
     text-align: center;
 }
 
 .hero-about-inner {
-    max-width: 450px;
+    max-width: 420px;
     margin: 0 auto;
 }
 
 .hero-about-inner h1 {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(22px, 4.6vw, 34px);
+    font-size: clamp(20px, 3vw, 26px);
     font-weight: 400;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -388,10 +388,10 @@ header.nav-hidden {
 }
 
 .hero-about-inner p {
-    font-size: clamp(13px, 2.6vw, 15.5px);
+    font-size: clamp(12.5px, 1.8vw, 13.5px);
     line-height: 1.75;
     color: #4a4a4a;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .hero-about-inner p:last-child {
@@ -399,11 +399,11 @@ header.nav-hidden {
 }
 
 section {
-    padding: clamp(40px, 8vw, 80px) clamp(12px, 3vw, 20px);
+    padding: clamp(32px, 5vw, 52px) clamp(12px, 2.2vw, 18px);
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: auto;
 }
 
@@ -447,24 +447,20 @@ section {
     color: #0d0d0d;
 }
 
-#shop .card {
-    background: #ffffff;
-    border: 1px solid #e2e2e2;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, .05);
-}
-
 #shop .tag {
     color: #5a8a00;
-    border: 1px solid rgba(183, 255, 0, .6);
-    background: rgba(183, 255, 0, .12);
 }
 
 #shop .info h3 {
     color: #111111;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 #shop .price {
+    color: #0d0d0d;
+}
+
+#shop .buy {
     color: #0d0d0d;
 }
 
@@ -473,36 +469,36 @@ section {
 =================================================== */
 .title {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(22px, 5vw, 40px);
+    font-size: clamp(20px, 3vw, 27px);
     font-weight: 400;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     position: relative;
 }
 
 .subtitle {
-    font-size: clamp(12px, 2.5vw, 16px);
+    font-size: clamp(11.5px, 1.5vw, 13px);
     color: #aaa;
-    margin-bottom: clamp(22px, 4vw, 35px);
+    margin-bottom: clamp(18px, 2.6vw, 24px);
 }
 
 .filter {
     display: flex;
-    gap: clamp(8px, 1.8vw, 10px);
+    gap: clamp(8px, 1.2vw, 9px);
     flex-wrap: wrap;
-    margin-bottom: clamp(20px, 3.5vw, 30px);
+    margin-bottom: clamp(16px, 2.2vw, 20px);
 }
 
 .filter button {
     background: #1f1f1f;
     border: 1px solid #2b2b2b;
     color: white;
-    font-size: clamp(11px, 2.6vw, 15px);
+    font-size: clamp(11px, 1.6vw, 12.5px);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .5px;
-    padding: clamp(8px, 1.8vw, 10px) clamp(12px, 3vw, 18px);
+    padding: clamp(7px, 1.2vw, 8px) clamp(11px, 1.8vw, 14px);
     border-radius: 4px;
     cursor: pointer;
     transition: .2s ease;
@@ -517,72 +513,124 @@ section {
 }
 
 /* ===================================================
-   PRODUCT GRID (default — Home page, auto-fit)
+   PRODUCT GRID — scroll horizontal (sama pola dengan
+   .blog-track), dipakai di semua ukuran layar termasuk
+   desktop / desktop-site.
 =================================================== */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: clamp(14px, 2.6vw, 25px);
+    display: flex;
+    gap: clamp(12px, 1.6vw, 18px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 16px;
+    scrollbar-width: thin;
+    scrollbar-color: #b7ff00 #262626;
 }
 
-.card {
-    background: #171717;
-    border: 1px solid #262626;
+.grid::-webkit-scrollbar {
+    height: 6px;
+}
+
+.grid::-webkit-scrollbar-track {
+    background: #262626;
     border-radius: 10px;
-    overflow: hidden;
+}
+
+.grid::-webkit-scrollbar-thumb {
+    background: #b7ff00;
+    border-radius: 10px;
+}
+
+#shop .grid {
+    scrollbar-color: #b7ff00 #eaeaea;
+}
+
+#shop .grid::-webkit-scrollbar-track {
+    background: #eaeaea;
+}
+
+/* Card minimalis — ala toko distro/streetwear modern:
+   nggak ada border/box tebal, fokus ke foto & tipografi. */
+.card {
+    flex: 0 0 clamp(150px, 19vw, 190px);
+    scroll-snap-align: start;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
     position: relative;
     transition: .3s ease;
 }
 
 .card img {
     width: 100%;
-    height: 300px;
+    aspect-ratio: 3 / 4;
+    height: auto;
     object-fit: cover;
-    filter: grayscale(10%) contrast(1.05);
+    border-radius: 6px;
+    filter: grayscale(6%) contrast(1.02);
+    transition: transform .4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.03);
 }
 
 .info {
-    padding: clamp(12px, 2.4vw, 18px);
+    padding: 10px 2px 0;
 }
 
 .tag {
-    display: inline-block;
-    font-size: clamp(10px, 2.5vw, 12px);
+    display: block;
+    font-size: clamp(9px, 1.1vw, 10px);
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #b7ff00;
-    border: 1px solid rgba(183, 255, 0, .4);
-    padding: 3px 9px;
-    border-radius: 3px;
-    margin-bottom: 10px;
+    border: none;
+    background: none;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.info h3 {
+    font-size: clamp(12px, 1.3vw, 13.5px);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 4px;
+    color: inherit;
 }
 
 .price {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(15px, 4vw, 22px);
-    font-weight: 400;
-    letter-spacing: .5px;
-    margin: 12px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(12.5px, 1.3vw, 14px);
+    font-weight: 700;
+    letter-spacing: 0;
+    margin: 0 0 8px;
 }
 
 .buy {
-    width: 100%;
-    padding: clamp(10px, 2.2vw, 12px);
-    border: none;
-    background: #b7ff00;
-    color: black;
-    font-weight: 800;
-    font-size: clamp(12px, 2.8vw, 16px);
+    display: inline-block;
+    width: auto;
+    padding: clamp(6px, .8vw, 7px) clamp(13px, 1.6vw, 16px);
+    border: 1px solid currentColor;
+    background: transparent;
+    color: #0d0d0d;
+    font-weight: 600;
+    font-size: clamp(10px, 1.1vw, 11px);
     text-transform: uppercase;
     letter-spacing: .5px;
-    border-radius: 6px;
+    border-radius: 999px;
     cursor: pointer;
     transition: .2s ease;
 }
 
 .buy:hover {
-    background: #a2e600;
+    background: #b7ff00;
+    border-color: #b7ff00;
+    color: #0d0d0d;
 }
 
 .delete {
@@ -639,7 +687,15 @@ section {
 }
 
 .shop-content .grid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+}
+
+.shop-content .grid .card {
+    flex: unset;
 }
 
 /* ---- Tablet: grid 2 kolom, sidebar tetap kiri ---- */
@@ -740,12 +796,12 @@ section {
 
 .blog-track {
     display: flex;
-    gap: clamp(14px, 2.6vw, 24px);
+    gap: clamp(12px, 1.6vw, 18px);
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 18px;
+    padding-bottom: 16px;
     scrollbar-width: thin;
     scrollbar-color: #b7ff00 #1a1a1a;
 }
@@ -765,15 +821,15 @@ section {
 }
 
 .blog-card {
-    flex: 0 0 clamp(250px, 72vw, 360px);
-    max-width: 360px;
+    flex: 0 0 clamp(230px, 26vw, 280px);
+    max-width: 280px;
     scroll-snap-align: start;
     background: #ffffff;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, .4);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
 }
 
 .blog-image {
@@ -795,7 +851,7 @@ section {
 }
 
 .blog-body {
-    padding: clamp(16px, 3vw, 22px);
+    padding: clamp(14px, 2vw, 17px);
     color: #111111;
     display: flex;
     flex-direction: column;
@@ -803,23 +859,23 @@ section {
 
 .blog-label {
     display: block;
-    font-size: clamp(11px, 2.2vw, 12.5px);
+    font-size: clamp(10.5px, 1.3vw, 11.5px);
     font-weight: 700;
     color: #5a8a00;
     text-transform: uppercase;
     letter-spacing: .5px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .blog-body h3 {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(16px, 3.2vw, 20px);
+    font-size: clamp(14px, 1.8vw, 16px);
     font-weight: 400;
     line-height: 1.25;
     text-transform: uppercase;
     letter-spacing: .5px;
     color: #0d0d0d;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .blog-ig {
@@ -833,12 +889,12 @@ section {
 }
 
 .blog-ig svg {
-    width: 17px;
-    height: 17px;
+    width: 15px;
+    height: 15px;
 }
 
 .blog-ig span {
-    font-size: clamp(11px, 2.2vw, 12.5px);
+    font-size: clamp(10.5px, 1.3vw, 11.5px);
     font-weight: 600;
 }
 
@@ -847,8 +903,8 @@ section {
 }
 
 .blog-body p {
-    font-size: clamp(12.5px, 2.4vw, 14px);
-    line-height: 1.65;
+    font-size: clamp(11.5px, 1.4vw, 12.5px);
+    line-height: 1.6;
     color: #555555;
 
     display: -webkit-box;
@@ -868,7 +924,7 @@ section {
 #footer {
     background-color: #050505;
     color: #d9d9d9;
-    padding: clamp(28px, 6vw, 48px) clamp(14px, 3vw, 20px) 20px;
+    padding: clamp(24px, 4vw, 34px) clamp(14px, 2.2vw, 18px) 18px;
     font-family: 'Montserrat', Arial, sans-serif;
     width: 100%;
     box-sizing: border-box;
@@ -880,24 +936,24 @@ section {
 }
 
 .footer-container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 .footer-top {
     display: grid;
     grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-    gap: clamp(20px, 4vw, 32px);
+    gap: clamp(18px, 2.6vw, 26px);
 }
 
 .footer-col h3 {
     color: #ffffff;
-    font-size: clamp(13px, 2.4vw, 15px);
+    font-size: clamp(12px, 1.6vw, 13.5px);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin: 0 0 16px;
+    margin: 0 0 13px;
     position: relative;
-    padding-bottom: 8px;
+    padding-bottom: 7px;
 }
 
 .footer-col h3::after {
@@ -913,29 +969,29 @@ section {
 .footer-logo {
     font-family: 'Anton', sans-serif;
     color: #ffffff;
-    font-size: clamp(20px, 4vw, 26px);
+    font-size: clamp(18px, 2.6vw, 21px);
     font-weight: 400;
     letter-spacing: 1px;
     text-transform: uppercase;
-    margin: 0 0 10px;
+    margin: 0 0 8px;
 }
 
 .footer-tagline {
-    font-size: clamp(12px, 2.4vw, 14px);
+    font-size: clamp(11.5px, 1.5vw, 12.5px);
     line-height: 1.6;
     color: #b3b3b3;
-    margin: 0 0 20px;
-    max-width: 280px;
+    margin: 0 0 16px;
+    max-width: 260px;
 }
 
 .footer-social {
     display: flex;
-    gap: 12px;
+    gap: 10px;
 }
 
 .footer-social a {
-    width: clamp(32px, 6vw, 38px);
-    height: clamp(32px, 6vw, 38px);
+    width: clamp(28px, 3.6vw, 32px);
+    height: clamp(28px, 3.6vw, 32px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -947,8 +1003,8 @@ section {
 }
 
 .footer-social a svg {
-    width: clamp(15px, 3vw, 18px);
-    height: clamp(15px, 3vw, 18px);
+    width: clamp(14px, 1.8vw, 16px);
+    height: clamp(14px, 1.8vw, 16px);
 }
 
 .footer-social a:hover {
@@ -965,13 +1021,13 @@ section {
 }
 
 .footer-col ul li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .footer-col ul li a {
     color: #b3b3b3;
     text-decoration: none;
-    font-size: clamp(12px, 2.4vw, 14px);
+    font-size: clamp(11.5px, 1.5vw, 12.5px);
     transition: color 0.2s ease, padding-left 0.2s ease;
 }
 
@@ -983,14 +1039,14 @@ section {
 .footer-contact li {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    font-size: clamp(12px, 2.4vw, 14px);
+    gap: 8px;
+    font-size: clamp(11.5px, 1.5vw, 12.5px);
     color: #b3b3b3;
 }
 
 .footer-contact li svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     flex-shrink: 0;
     margin-top: 2px;
     color: #b7ff00;
@@ -999,7 +1055,7 @@ section {
 .footer-divider {
     border: none;
     border-top: 1px solid #2b2b2b;
-    margin: clamp(24px, 5vw, 36px) 0 20px;
+    margin: clamp(20px, 3.2vw, 28px) 0 16px;
 }
 
 .footer-bottom {
@@ -1011,22 +1067,22 @@ section {
 }
 
 .footer-bottom small {
-    font-size: clamp(11px, 2.2vw, 12.5px);
+    font-size: clamp(10.5px, 1.4vw, 11.5px);
     color: #808080;
 }
 
 .footer-payment {
     display: flex;
-    gap: 8px;
+    gap: 7px;
     flex-wrap: wrap;
 }
 
 .footer-payment span {
-    font-size: clamp(10px, 2vw, 11px);
+    font-size: clamp(9px, 1.2vw, 10px);
     font-weight: 600;
     color: #cccccc;
     border: 1px solid #333;
-    padding: 4px 10px;
+    padding: 3px 9px;
     border-radius: 4px;
     letter-spacing: 0.5px;
 }
@@ -1247,6 +1303,10 @@ section {
     section#shop:not(:has(.shop-layout)) .card img {
         height: 62vw;
         max-height: 380px;
+    }
+
+    section#shop:not(:has(.shop-layout)) .info {
+        padding: 12px 4px 0;
     }
 
     .blog-track {
