@@ -959,6 +959,8 @@ section {
 
     .shop-content .grid .card {
         width: 100%;
+        max-width: 100%;
+        flex-basis: auto;
     }
 }
 
