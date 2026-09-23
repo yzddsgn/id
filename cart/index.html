@@ -175,14 +175,15 @@
     <script src="https://yzddsgn.github.io/id/assets/js/script.js"></script>
     <script src="https://yzddsgn.github.io/id/assets/js/image-zoom.js"></script>
     <script src="https://yzddsgn.github.io/id/assets/js/nav-hidden.js"></script>
-    <script src="https://yzddsgn.github.io/id/assets/js/truncate.js"></script>
     <script type="module" src="https://yzddsgn.github.io/id/cart/js/cart.js"></script>
     <script type="module" src="https://yzddsgn.github.io/id/login/js/auth.js"></script>
     <script type="module" src="https://yzddsgn.github.io/id/login/js/navbar-auth.js"></script>
 
     <script>
         function toggleMenu() {
-            document.getElementById("menu").classList.toggle("show");
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("show");
+            document.body.classList.toggle("menu-open", menu.classList.contains("show"));
         }
     </script>
 
