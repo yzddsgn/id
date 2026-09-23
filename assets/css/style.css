@@ -879,10 +879,14 @@ section {
     flex: unset;
 }
 
-/* ---- Tablet: grid 2 kolom, sidebar tetap kiri ---- */
+/* ---- Tablet & mode "Desktop site" di browser mobile: grid 2 kolom,
+   sidebar tetap kiri. Gap di-hardcode 18px (nilai maksimum clamp
+   yang dipakai .grid di versi PC/laptop) supaya jaraknya identik,
+   bukan ikut mengecil karena vw dari viewport yang lebih sempit. ---- */
 @media (max-width: 1024px) {
     .shop-content .grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
     }
 }
 
