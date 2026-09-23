@@ -810,19 +810,25 @@ section {
 }
 
 .delete {
-    width: 100%;
-    padding: clamp(10px, 2.2vw, 12px);
-    margin-top: 5px;
-    border: none;
-    background: #df0a0a;
-    color: white;
-    font-weight: 800;
-    font-size: clamp(12px, 2.8vw, 16px);
+    display: inline-block;
+    width: auto;
+    padding: clamp(6px, .8vw, 7px) clamp(13px, 1.6vw, 16px);
+    border: 1px solid currentColor;
+    background: transparent;
+    color: #0d0d0d;
+    font-weight: 600;
+    font-size: clamp(10px, 1.1vw, 11px);
     text-transform: uppercase;
     letter-spacing: .5px;
-    border-radius: 6px;
+    border-radius: 999px;
     cursor: pointer;
     transition: .2s ease;
+}
+
+.delete:hover {
+    background: #f50b0b;
+    border-color: #f50b0b;
+    color: white;
 }
 
 /* ===================================================
@@ -1243,12 +1249,10 @@ section {
     color: #b3b3b3;
     text-decoration: none;
     font-size: clamp(11.5px, 1.5vw, 12.5px);
-    transition: color 0.2s ease, padding-left 0.2s ease;
 }
 
 .footer-col ul li a:hover {
     color: #b7ff00;
-    padding-left: 4px;
 }
 
 .footer-contact li {
