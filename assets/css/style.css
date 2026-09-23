@@ -169,7 +169,7 @@ header.nav-hidden {
 =================================================== */
 .hero {
     background: #ffffff;
-    padding: clamp(75px, 14vw, 100px) clamp(10px, 3vw, 20px) clamp(22px, 6vw, 40px);
+    padding: clamp(60px, 10vw, 78px) clamp(10px, 3vw, 20px) clamp(22px, 6vw, 40px);
 }
 
 .hero-frame {
