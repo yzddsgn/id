@@ -643,49 +643,20 @@ section {
 }
 
 /* ===================================================
-   PRODUCT GRID — scroll horizontal (sama pola dengan
-   .blog-track), dipakai di semua ukuran layar termasuk
-   desktop / desktop-site.
+   PRODUCT GRID — default: grid biasa (wrap ke banyak
+   baris) untuk desktop/tablet. Horizontal-scroll cuma
+   diaktifkan khusus mobile untuk Home (lihat media query
+   @media max-width:768px di bawah).
 =================================================== */
 .grid {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 19vw, 190px), 1fr));
     gap: clamp(12px, 1.6vw, 18px);
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 16px;
-    scrollbar-width: thin;
-    scrollbar-color: #b7ff00 #262626;
-}
-
-.grid::-webkit-scrollbar {
-    height: 6px;
-}
-
-.grid::-webkit-scrollbar-track {
-    background: #262626;
-    border-radius: 10px;
-}
-
-.grid::-webkit-scrollbar-thumb {
-    background: #b7ff00;
-    border-radius: 10px;
-}
-
-#shop .grid {
-    scrollbar-color: #b7ff00 #eaeaea;
-}
-
-#shop .grid::-webkit-scrollbar-track {
-    background: #eaeaea;
 }
 
 /* Card minimalis — ala toko distro/streetwear modern:
    nggak ada border/box tebal, fokus ke foto & tipografi. */
 .card {
-    flex: 0 0 clamp(150px, 19vw, 190px);
-    scroll-snap-align: start;
     background: transparent;
     border: none;
     border-radius: 0;
@@ -819,13 +790,6 @@ section {
 .shop-content .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    overflow: visible;
-    scroll-snap-type: none;
-    padding-bottom: 0;
-}
-
-.shop-content .grid .card {
-    flex: unset;
 }
 
 /* ---- Tablet: grid 2 kolom, sidebar tetap kiri ---- */
@@ -1039,10 +1003,6 @@ section {
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-
-/* (rule lama #about sudah dihapus — sekarang about ada
-   di dalam .hero-about, styling-nya lihat bagian ABOUT
-   di dalam HERO di atas) */
 
 /* ===================================================
    FOOTER
