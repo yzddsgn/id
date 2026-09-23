@@ -728,7 +728,8 @@ section {
 /* Card minimalis — ala toko distro/streetwear modern:
    nggak ada border/box tebal, fokus ke foto & tipografi. */
 .card {
-    flex: 0 0 clamp(150px, 18vw, 235px);
+    flex: 0 0 clamp(230px, 26vw, 280px);
+    max-width: 280px;
     scroll-snap-align: start;
     background: transparent;
     border: none;
