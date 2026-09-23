@@ -320,10 +320,23 @@
     <script type="module" src="https://yzddsgn.github.io/id/login/js/navbar-auth.js"></script>
 
     <script>
+        let scrollLockY = 0;
+
         function toggleMenu() {
             const menu = document.getElementById("menu");
+            const opening = !menu.classList.contains("show");
+
             menu.classList.toggle("show");
-            document.body.classList.toggle("menu-open", menu.classList.contains("show"));
+
+            if (opening) {
+                scrollLockY = window.scrollY;
+                document.body.style.top = -scrollLockY + "px";
+                document.body.classList.add("menu-open");
+            } else {
+                document.body.classList.remove("menu-open");
+                document.body.style.top = "";
+                window.scrollTo(0, scrollLockY);
+            }
         }
     </script>
 
