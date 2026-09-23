@@ -156,7 +156,9 @@ restartTimer();
 
 
 // =====================================================
-// TRUNCATE JUDUL PRODUK (h3) DI MODE MOBILE
+// TRUNCATE JUDUL PRODUK (h3) — WORK DI SEMUA MODE
+// (desktop PC/laptop, "desktop site" di HP, dan mobile
+// responsive biasa)
 // =====================================================
 //
 // Cara pakai:
@@ -168,44 +170,30 @@ restartTimer();
 //   (misalnya di halaman cart), panggil ulang fungsi
 //   truncateProductTitles() setelah render selesai.
 //
-// Breakpoint mobile: 768px (samain sama breakpoint
-// di CSS kamu, silahkan ubah angkanya kalau perlu).
+// Beda dari versi sebelumnya:
+// - TIDAK ada lagi pengecekan window.innerWidth <= 768.
+//   Truncation sekarang murni berdasarkan lebar render
+//   asli elemen h3 (scrollWidth vs clientWidth), jadi
+//   otomatis tetap jalan walau device melaporkan viewport
+//   lebar (mode "desktop site" di HP) atau di PC/laptop,
+//   karena breakpoint viewport nggak lagi jadi acuan.
 // =====================================================
 
-const MOBILE_BREAKPOINT = 768;
-
 function truncateProductTitles() {
-
-    const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
 
     document.querySelectorAll(".card h3").forEach(function (h3) {
 
         // Simpan teks asli sekali saja,
         // supaya bisa dikembalikan lagi
-        // saat layar melebar (desktop).
+        // sebelum diukur ulang.
         if (!h3.dataset.fullText) {
             h3.dataset.fullText = h3.textContent.trim();
         }
 
         const fullText = h3.dataset.fullText;
 
-        // -------------------------------------------------
-        // DESKTOP: kembalikan teks penuh, teks boleh wrap
-        // -------------------------------------------------
-        if (!isMobile) {
-
-            h3.textContent = fullText;
-
-            h3.style.whiteSpace = "";
-            h3.style.overflow = "";
-            h3.style.textOverflow = "";
-
-            return;
-        }
-
-        // -------------------------------------------------
-        // MOBILE: paksa 1 baris supaya bisa diukur lebarnya
-        // -------------------------------------------------
+        // Paksa 1 baris supaya bisa diukur lebarnya,
+        // berlaku sama di semua ukuran layar.
         h3.style.whiteSpace = "nowrap";
         h3.style.overflow = "hidden";
         h3.style.textOverflow = "clip";
@@ -251,9 +239,6 @@ function handleResize() {
 window.addEventListener("load", truncateProductTitles);
 window.addEventListener("resize", handleResize);
 
-
-// Kalau file ini adalah module (import/export),
-// buka comment baris di bawah supaya bisa dipanggil
-// manual setelah render produk dinamis:
-//
-// window.truncateProductTitles = truncateProductTitles;
+// Supaya bisa dipanggil manual setelah render produk
+// dinamis (misalnya di halaman cart).
+window.truncateProductTitles = truncateProductTitles;
