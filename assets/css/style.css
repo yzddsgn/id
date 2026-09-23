@@ -44,8 +44,14 @@ body {
     width: 100%;
 }
 
-/* ---- Kunci scroll body saat drawer menu terbuka ---- */
+/* ---- Kunci scroll body saat drawer menu terbuka ----
+   Pakai position:fixed (bukan cuma overflow:hidden) supaya
+   benar-benar terkunci di iOS Safari, yang sering masih bisa
+   "rubber-band scroll" di belakang walau overflow:hidden. ---- */
 body.menu-open {
+    position: fixed;
+    left: 0;
+    right: 0;
     overflow: hidden;
 }
 
@@ -582,6 +588,14 @@ section {
     color: #0d0d0d;
 }
 
+#shop .filter {
+    scrollbar-color: #b7ff00 #eaeaea;
+}
+
+#shop .filter::-webkit-scrollbar-track {
+    background: #eaeaea;
+}
+
 #shop .tag {
     color: #5a8a00;
 }
@@ -600,7 +614,8 @@ section {
 }
 
 /* ===================================================
-   TITLES / FILTER
+   TITLES / FILTER — sekarang scroll mode di SEMUA device
+   (PC/laptop & semua mobile), konsisten dengan .grid.
 =================================================== */
 .title {
     font-family: 'Anton', sans-serif;
@@ -621,8 +636,29 @@ section {
 .filter {
     display: flex;
     gap: clamp(8px, 1.2vw, 9px);
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     margin-bottom: clamp(16px, 2.2vw, 20px);
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #b7ff00 #262626;
+}
+
+.filter::-webkit-scrollbar {
+    height: 6px;
+}
+
+.filter::-webkit-scrollbar-track {
+    background: #262626;
+    border-radius: 10px;
+}
+
+.filter::-webkit-scrollbar-thumb {
+    background: #b7ff00;
+    border-radius: 10px;
 }
 
 .filter button {
@@ -638,6 +674,7 @@ section {
     cursor: pointer;
     transition: .2s ease;
     flex-shrink: 0;
+    scroll-snap-align: start;
 }
 
 .filter button.active,
@@ -708,11 +745,6 @@ section {
     object-fit: cover;
     border-radius: 6px;
     filter: grayscale(6%) contrast(1.02);
-    transition: transform .4s ease;
-}
-
-.card:hover img {
-    transform: scale(1.03);
 }
 
 .info {
@@ -817,8 +849,11 @@ section {
 .shop-sidebar .filter {
     flex-direction: column;
     flex-wrap: nowrap;
+    overflow-x: visible;
+    scroll-snap-type: none;
     gap: clamp(8px, 1.6vw, 12px);
     margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .shop-sidebar .filter button {
@@ -1271,13 +1306,18 @@ section {
    MOBILE (<=768px): penyesuaian tambahan untuk shop &
    blog carousel. Card di Home page (bukan Shop) diperlebar
    full-bleed selebar layar, satu card per pandangan.
-   Nav/menu drawer sudah universal di base.
+   Nav/menu drawer sudah universal di base. Filter & grid
+   sudah scroll mode di semua device sejak base rule di atas,
+   jadi di sini cuma tambahan margin full-bleed untuk mobile.
 =================================================== */
 @media (max-width: 768px) {
 
-    /* Home page: filter horizontal-scroll + margin full-bleed */
+    /* Home page: margin full-bleed untuk filter & grid */
     section#shop:not(:has(.shop-layout)) .filter {
-        margin-bottom: 20px;
+        margin: 0 -20px clamp(16px, 2.2vw, 20px);
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 14px;
     }
 
     section#shop:not(:has(.shop-layout)) .grid {
@@ -1323,8 +1363,10 @@ section {
         max-width: calc(100vw - 44px);
     }
 
-    section#shop:not(:has(.shop-layout)) .grid {
-        margin: 0 -16px;
+    section#shop:not(:has(.shop-layout)) .grid,
+    section#shop:not(:has(.shop-layout)) .filter {
+        margin-left: -16px;
+        margin-right: -16px;
         padding-left: 16px;
         padding-right: 16px;
     }
