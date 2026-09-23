@@ -1,30 +1,35 @@
 // =====================================================
 // TRUNCATE JUDUL PRODUK (h3) — WORK DI SEMUA MODE
 // (desktop PC/laptop, "desktop site" di HP, dan mobile
-// responsive biasa)
+// responsive biasa) — VERSI DIPERBAIKI
 // =====================================================
 //
-// Cara pakai:
-// - Simpan / gabungkan file ini bersama script lain kamu
-//   (misalnya di bawah cart.js, atau file terpisah lalu
-//   di-import lewat <script src="truncate-title.js"></script>)
-// - Otomatis jalan saat halaman dimuat & saat resize.
-// - Kalau kamu render produk secara dinamis lewat JS
-//   (misalnya di halaman cart), panggil ulang fungsi
-//   truncateProductTitles() setelah render selesai.
-//
-// Beda dari versi sebelumnya:
-// - TIDAK ada lagi pengecekan window.innerWidth <= 768.
-//   Truncation sekarang murni berdasarkan lebar render
-//   asli elemen h3 (scrollWidth vs clientWidth), jadi
-//   otomatis tetap jalan walau device melaporkan viewport
-//   lebar (mode "desktop site" di HP) atau di PC/laptop,
-//   karena breakpoint viewport nggak lagi jadi acuan.
+// Perbaikan dari versi sebelumnya:
+// 1. Melewati (skip) elemen yang sedang tersembunyi
+//    (display:none / clientWidth 0), misalnya card yang
+//    lagi di-filter — supaya judulnya tidak rusak jadi "...".
+// 2. Otomatis mendeteksi card baru yang ditambahkan ke DOM
+//    secara dinamis (misalnya di halaman Cart) lewat
+//    MutationObserver, tidak lagi hanya mengandalkan event
+//    "load" atau pemanggilan manual.
+// 3. Juga mendengarkan perubahan atribut style/class (untuk
+//    menangkap saat filter menyembunyikan/menampilkan card),
+//    lalu menjadwalkan ulang truncate.
+// 4. Dijalankan di DOMContentLoaded (lebih cepat) DAN saat
+//    load (untuk jaga-jaga reflow akibat gambar/font selesai
+//    dimuat).
 // =====================================================
 
 function truncateProductTitles() {
 
     document.querySelectorAll(".card h3").forEach(function (h3) {
+
+        // Lewati elemen yang sedang tidak terlihat/tidak
+        // punya lebar (misalnya card lagi disembunyikan oleh
+        // filter) — mencegah judul rusak jadi "...".
+        if (h3.offsetParent === null || h3.clientWidth === 0) {
+            return;
+        }
 
         // Simpan teks asli sekali saja,
         // supaya bisa dikembalikan lagi
@@ -41,6 +46,8 @@ function truncateProductTitles() {
         h3.style.overflow = "hidden";
         h3.style.textOverflow = "clip";
 
+        // Selalu kembalikan ke teks penuh dulu sebelum diukur,
+        // supaya hasil truncate sebelumnya tidak ikut terukur.
         h3.textContent = fullText;
 
         // Kalau muat, tidak perlu dipotong
@@ -65,23 +72,77 @@ function truncateProductTitles() {
 
 
 // -------------------------------------------------
-// DEBOUNCE RESIZE
-// (supaya tidak dipanggil ratusan kali saat resize)
+// DEBOUNCE (dipakai untuk resize & mutation observer,
+// supaya tidak dipanggil berkali-kali dalam waktu singkat)
 // -------------------------------------------------
 
-let resizeTimeout;
+let truncateDebounceTimeout;
 
-function handleResize() {
+function scheduleTruncate() {
 
-    clearTimeout(resizeTimeout);
+    clearTimeout(truncateDebounceTimeout);
 
-    resizeTimeout = setTimeout(truncateProductTitles, 150);
+    truncateDebounceTimeout = setTimeout(truncateProductTitles, 150);
 }
 
 
+// -------------------------------------------------
+// AUTO-DETECT PERUBAHAN DOM
+// Menangkap:
+// - Card baru ditambahkan (misalnya render dinamis di
+//   halaman Cart)
+// - Card disembunyikan / dimunculkan lagi (filter), lewat
+//   perubahan atribut style/class
+// -------------------------------------------------
+
+function initTruncateObserver() {
+
+    const observer = new MutationObserver(function (mutations) {
+
+        let shouldRun = false;
+
+        for (const mutation of mutations) {
+
+            if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
+                shouldRun = true;
+                break;
+            }
+
+            if (
+                mutation.type === "attributes" &&
+                (mutation.attributeName === "style" || mutation.attributeName === "class")
+            ) {
+                shouldRun = true;
+                break;
+            }
+        }
+
+        if (shouldRun) {
+            scheduleTruncate();
+        }
+
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["style", "class"]
+    });
+
+}
+
+
+// -------------------------------------------------
+// INISIALISASI
+// -------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", truncateProductTitles);
 window.addEventListener("load", truncateProductTitles);
-window.addEventListener("resize", handleResize);
+window.addEventListener("resize", scheduleTruncate);
+
+document.addEventListener("DOMContentLoaded", initTruncateObserver);
 
 // Supaya bisa dipanggil manual setelah render produk
-// dinamis (misalnya di halaman cart).
+// dinamis (misalnya di halaman cart), kalau memang perlu.
 window.truncateProductTitles = truncateProductTitles;
