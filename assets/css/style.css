@@ -69,16 +69,35 @@ header.nav-hidden {
     position: relative;
     max-width: 1100px;
     margin: auto;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     padding: clamp(10px, 1.6vw, 13px) clamp(14px, 2vw, 18px);
     gap: clamp(8px, 2vw, 15px);
 }
 
-.logo {
+.toggle {
     display: flex;
     align-items: center;
+    justify-content: center;
+    grid-column: 1;
+    justify-self: start;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Logo dipusatkan secara absolut terhadap .nav, jadi
+   posisinya presisi di tengah untuk semua ukuran layar
+   (desktop maupun mobile), sama seperti referensi. */
+.logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    z-index: 1;
 }
 
 .logo img {
@@ -91,15 +110,43 @@ header.nav-hidden {
     color: #b7ff00;
 }
 
+/* ===================================================
+   MENU — off-canvas drawer dari kiri, dipakai di SEMUA
+   device (desktop pc/laptop & semua mobile termasuk
+   iPhone 4/5 ke atas). Sisi kanan halaman jadi redup
+   pakai trik box-shadow raksasa (tanpa markup tambahan).
+=================================================== */
 .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(320px, 84vw);
+    height: 100dvh;
+    background: rgba(5, 5, 5, 0.98);
     display: flex;
-    gap: clamp(14px, 2.2vw, 20px);
-    font-size: clamp(11px, 1.6vw, 13px);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: clamp(70px, 10vw, 88px) 28px 28px;
+    gap: clamp(16px, 2.4vw, 20px);
+    font-size: clamp(14px, 1.8vw, 15.5px);
     text-transform: uppercase;
     letter-spacing: .5px;
+    box-sizing: border-box;
+    z-index: 1500;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform .35s ease;
+}
+
+.menu.show {
+    transform: translateX(0);
+    box-shadow: 100vw 0 0 100vw rgba(0, 0, 0, .55);
 }
 
 .menu a {
+    width: 100%;
+    text-align: left;
     font-weight: 600;
     transition: color .2s ease;
 }
@@ -113,7 +160,78 @@ header.nav-hidden {
     color: #b7ff00;
 }
 
+.menu #logoutBtn.mm,
+.menu button[id="logoutBtn mm"] {
+    align-self: flex-start;
+}
+
+/* ---- Grup expandable ala "+" (contoh: Info) ---- */
+.menu-group {
+    width: 100%;
+}
+
+.menu-group summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+}
+
+.menu-group summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu-group summary .menu-group-icon {
+    width: clamp(15px, 2.4vw, 17px);
+    height: clamp(15px, 2.4vw, 17px);
+    display: block;
+    margin-left: 10px;
+}
+
+.menu-group summary .icon-minus {
+    display: none;
+}
+
+.menu-group[open] summary .icon-plus {
+    display: none;
+}
+
+.menu-group[open] summary .icon-minus {
+    display: block;
+}
+
+.menu-group summary:hover {
+    color: #b7ff00;
+}
+
+.menu-submenu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+    padding-left: 4px;
+}
+
+.menu-submenu a {
+    font-size: .8em;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #cfcfcf;
+}
+
+.menu-submenu a:hover {
+    color: #b7ff00;
+}
+
 .nav-actions {
+    grid-column: 3;
+    justify-self: end;
+    position: relative;
+    z-index: 2;
     display: flex;
     gap: clamp(10px, 1.6vw, 13px);
     align-items: center;
@@ -129,11 +247,6 @@ header.nav-hidden {
     width: clamp(15px, 2.4vw, 17px);
     height: clamp(15px, 2.4vw, 17px);
     display: block;
-}
-
-.toggle {
-    display: none;
-    cursor: pointer;
 }
 
 .auth-btn {
@@ -159,9 +272,26 @@ header.nav-hidden {
     display: none !important;
 }
 
-/* ---- Close button inside mobile fullscreen menu (hidden on desktop) ---- */
+/* ---- Close (X) button di dalam drawer menu.
+   Ukurannya disamakan dengan .cart img/.toggle img/.auth-btn img ---- */
 .menu-close {
-    display: none;
+    position: absolute;
+    top: clamp(12px, 2.4vw, 18px);
+    left: clamp(14px, 3vw, 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 2;
+}
+
+.menu-close img {
+    width: clamp(15px, 2.4vw, 17px);
+    height: clamp(15px, 2.4vw, 17px);
+    display: block;
 }
 
 /* ===================================================
@@ -754,12 +884,8 @@ section {
     }
 }
 
-/* ---- Mobile kecil: grid jadi 1 kolom ---- */
-@media (max-width: 480px) {
-    .shop-content .grid {
-        grid-template-columns: 1fr;
-    }
-}
+/* Shop page grid tetap 2 kolom di semua ukuran mobile
+   (termasuk iPhone 4/5 320px) — tidak diturunkan ke 1 kolom. */
 
 /* iPhone 4/5 (320px) */
 @media (max-width: 340px) {
@@ -1131,103 +1257,10 @@ section {
 }
 
 /* ===================================================
-   MOBILE (<=768px): NAV — toggle kiri, logo BENAR-BENAR tengah,
-   actions kanan. Menu full-screen saat dibuka.
+   MOBILE (<=768px): penyesuaian tambahan untuk shop &
+   blog carousel. Nav/menu drawer sudah universal di base.
 =================================================== */
 @media (max-width: 768px) {
-
-    .nav {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        align-items: center;
-    }
-
-    .toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        grid-column: 1;
-        justify-self: start;
-        position: relative;
-        z-index: 2;
-    }
-
-    /* Logo dilepas dari flow grid dan dipusatkan secara absolut
-       terhadap .nav, supaya posisinya benar-benar center
-       walau lebar .toggle dan .nav-actions berbeda. */
-    .logo {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        grid-column: unset;
-        z-index: 1;
-    }
-
-    .nav-actions {
-        grid-column: 3;
-        justify-self: end;
-        position: relative;
-        z-index: 2;
-    }
-
-    /* ---- Menu full screen ---- */
-    .menu {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100dvh;
-        background: rgba(0, 0, 0, 0.97);
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        display: none;
-        padding: clamp(90px, 20vw, 110px) 28px 28px;
-        gap: clamp(20px, 5vw, 30px);
-        font-size: clamp(16px, 5.5vw, 26px);
-        box-sizing: border-box;
-        z-index: 1500;
-        overflow-y: auto;
-    }
-
-    .menu.show {
-        display: flex;
-    }
-
-    .menu a {
-        width: 100%;
-        text-align: left;
-    }
-
-    .menu #logoutBtn.mm,
-    .menu button[id="logoutBtn mm"] {
-        align-self: flex-start;
-    }
-
-    /* ---- Close (X) button di dalam menu full screen ----
-       Posisi & ukurannya disamakan dengan .toggle di .nav:
-       absolute di pojok kiri atas, sejajar posisi toggle
-       sebelum menu dibuka. */
-    .menu-close {
-        position: absolute;
-        top: clamp(12px, 2.4vw, 18px);
-        left: clamp(14px, 3vw, 20px);
-        width: clamp(16px, 4.2vw, 20px);
-        height: clamp(16px, 4.2vw, 20px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-    }
-
-    .menu-close img {
-        width: 100%;
-        height: 100%;
-        display: block;
-    }
 
     /* Home page: filter & grid horizontal-scroll snap */
     #home~#shop .filter,
