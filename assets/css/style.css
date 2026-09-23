@@ -728,7 +728,7 @@ section {
 /* Card minimalis — ala toko distro/streetwear modern:
    nggak ada border/box tebal, fokus ke foto & tipografi. */
 .card {
-    flex: 0 0 clamp(150px, 19vw, 190px);
+    flex: 0 0 clamp(150px, 18vw, 235px);
     scroll-snap-align: start;
     background: transparent;
     border: none;
@@ -885,7 +885,11 @@ section {
     }
 }
 
-/* ---- Mobile: sidebar jadi filter horizontal di atas, grid di bawah ---- */
+/* ---- Mobile: sidebar jadi filter horizontal di atas, grid di bawah.
+   grid-template-columns dipaksa 1fr dengan !important supaya
+   selalu menang atas aturan tablet (1024px) di atas, berapa pun
+   urutan/spesifisitas nanti berubah. Berlaku dari 768px ke bawah
+   sampai layar paling kecil (320px / iPhone 4-5). ---- */
 @media (max-width: 768px) {
     .shop-layout {
         flex-direction: column;
@@ -929,19 +933,31 @@ section {
         scroll-snap-align: start;
     }
 
-    .shop-content .grid {
-        grid-template-columns: repeat(2, 1fr);
+    .shop-content .grid,
+    .shop-content .grid.grid {
+        grid-template-columns: 1fr !important;
     }
 }
 
-/* Shop page grid tetap 2 kolom di semua ukuran mobile
-   (termasuk iPhone 4/5 320px) — tidak diturunkan ke 1 kolom. */
+/* Shop page grid: 1 kolom di semua ukuran mobile
+   (termasuk iPhone 4/5 320px) — dipertegas lagi di sini
+   supaya aman walau ada perubahan lain di atas. */
+
+@media (max-width: 600px) {
+    .shop-content .grid {
+        grid-template-columns: 1fr !important;
+    }
+}
 
 /* iPhone 4/5 (320px) */
 @media (max-width: 340px) {
     .shop-sidebar .filter button {
         padding: 8px 14px;
         font-size: 11px;
+    }
+
+    .shop-content .grid {
+        grid-template-columns: 1fr !important;
     }
 }
 
@@ -1312,11 +1328,11 @@ section {
 =================================================== */
 @media (max-width: 768px) {
 
-    /* Home page: margin full-bleed untuk filter & grid */
+    /* Home page: margin full-bleed untuk grid saja.
+       Filter TIDAK full-bleed lagi supaya tombol pertamanya
+       tidak nempel/kepotong di tepi kiri layar — dia tetap
+       mengikuti padding container seperti biasa. */
     section#shop:not(:has(.shop-layout)) .filter {
-        margin: 0 -20px clamp(16px, 2.2vw, 20px);
-        padding-left: 20px;
-        padding-right: 20px;
         padding-bottom: 14px;
     }
 
@@ -1363,8 +1379,7 @@ section {
         max-width: calc(100vw - 44px);
     }
 
-    section#shop:not(:has(.shop-layout)) .grid,
-    section#shop:not(:has(.shop-layout)) .filter {
+    section#shop:not(:has(.shop-layout)) .grid {
         margin-left: -16px;
         margin-right: -16px;
         padding-left: 16px;
