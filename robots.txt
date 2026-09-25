@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://yzddsgn.github.io/sitemap.xml
