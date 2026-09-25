@@ -57,7 +57,7 @@ if (googleLogin) {
             );
 
             // LOGIN BERHASIL → HOME
-            window.location.href = "https://yzddsgn.github.io/id/home/";
+            window.location.href = "https://yzddsgn.github.io/home/";
 
         } catch (error) {
 
@@ -119,12 +119,12 @@ onAuthStateChanged(auth, (user) => {
         // padahal sudah login → HOME
         if (
             window.location.pathname.endsWith(
-                "https://yzddsgn.github.io/id/login/"
+                "https://yzddsgn.github.io/login/"
             )
         ) {
 
             window.location.href =
-                "https://yzddsgn.github.io/id/home/";
+                "https://yzddsgn.github.io/home/";
         }
 
     } else {
@@ -154,7 +154,7 @@ if (logoutButton) {
             await signOut(auth);
 
             window.location.href =
-                "https://yzddsgn.github.io/id/login/";
+                "https://yzddsgn.github.io/login/";
 
         } catch (error) {
 
