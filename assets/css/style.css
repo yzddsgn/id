@@ -1103,6 +1103,10 @@ section {
     margin-bottom: 10px;
 }
 
+.blog-body h3:hover {
+    color: #5a8a00;
+}
+
 .blog-ig {
     display: inline-flex;
     align-items: center;
