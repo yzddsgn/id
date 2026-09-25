@@ -28,7 +28,7 @@ const auth = getAuth(app);
 onAuthStateChanged(auth, (user) => {
 
     if (!user) {
-        window.location.href = "https://yzddsgn.github.io/id/login/index.html";
+        window.location.href = "https://yzddsgn.github.io/login/index.html";
         return;
     }
 
