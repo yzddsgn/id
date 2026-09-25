@@ -1557,7 +1557,7 @@ section {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: clamp(11px, 1.3vw, 12.5px);
+    font-size: clamp(10px, 1.1vw, 11.5px);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .5px;
@@ -1567,8 +1567,8 @@ section {
 }
 
 .post-back svg {
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
 }
 
 .post-back:hover {
@@ -1620,23 +1620,25 @@ section {
     margin: 0 auto;
 }
 
+/* Judul artikel — diperkecil dari sebelumnya (clamp(24px,4.4vw,40px)) */
 .post-title {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(24px, 4.4vw, 40px);
+    font-size: clamp(19px, 3.2vw, 30px);
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.25;
     letter-spacing: .5px;
     text-transform: uppercase;
     color: #0d0d0d;
 }
 
+/* Meta (kategori, tanggal, menit baca) — diperkecil */
 .post-meta {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
     margin-top: clamp(10px, 2vw, 14px);
-    font-size: clamp(10.5px, 1.3vw, 11.5px);
+    font-size: clamp(9.5px, 1.1vw, 10.5px);
     font-weight: 700;
     letter-spacing: .5px;
     text-transform: uppercase;
@@ -1661,15 +1663,17 @@ section {
     margin: 0 auto;
 }
 
+/* Paragraf isi artikel — diperkecil dari sebelumnya (clamp(14px,1.6vw,16px)) */
 .post-body-inner p {
-    font-size: clamp(14px, 1.6vw, 16px);
-    line-height: 1.85;
+    font-size: clamp(12.5px, 1.3vw, 14px);
+    line-height: 1.8;
     color: #333333;
     margin-bottom: clamp(16px, 2.4vw, 20px);
 }
 
+/* Paragraf pembuka (lead) — diperkecil */
 .post-body-inner p.lead {
-    font-size: clamp(15.5px, 1.9vw, 18px);
+    font-size: clamp(13.5px, 1.5vw, 15.5px);
     color: #111111;
     font-weight: 500;
 }
@@ -1679,9 +1683,10 @@ section {
     font-style: italic;
 }
 
+/* Sub-judul dalam artikel — diperkecil */
 .post-body-inner h2 {
     font-family: 'Anton', sans-serif;
-    font-size: clamp(18px, 2.6vw, 24px);
+    font-size: clamp(15.5px, 2vw, 19px);
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: .5px;
@@ -1689,11 +1694,12 @@ section {
     margin: clamp(28px, 4vw, 38px) 0 clamp(12px, 2vw, 16px);
 }
 
+/* Kutipan — diperkecil */
 .post-body-inner blockquote {
     border-left: 3px solid #b7ff00;
     padding: 4px 0 4px clamp(14px, 2.4vw, 20px);
     margin: clamp(20px, 3vw, 28px) 0;
-    font-size: clamp(15px, 1.9vw, 18px);
+    font-size: clamp(13px, 1.5vw, 15px);
     font-style: italic;
     color: #0d0d0d;
     line-height: 1.6;
@@ -1712,7 +1718,7 @@ section {
 }
 
 .post-body-inner figcaption {
-    font-size: clamp(10.5px, 1.2vw, 11.5px);
+    font-size: clamp(9.5px, 1vw, 10.5px);
     color: #888888;
     margin-top: 8px;
     text-align: center;
@@ -1726,7 +1732,7 @@ section {
 }
 
 .post-tags a {
-    font-size: clamp(10.5px, 1.2vw, 11.5px);
+    font-size: clamp(9.5px, 1vw, 10.5px);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .5px;
@@ -1754,7 +1760,7 @@ section {
 }
 
 .post-share span {
-    font-size: clamp(10.5px, 1.2vw, 11.5px);
+    font-size: clamp(9.5px, 1vw, 10.5px);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .5px;
@@ -1762,8 +1768,8 @@ section {
 }
 
 .post-share a {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1775,57 +1781,14 @@ section {
 }
 
 .post-share a svg {
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
 }
 
 .post-share a:hover {
     background: #b7ff00;
     border-color: #b7ff00;
     transform: translateY(-2px);
-}
-
-.post-cta {
-    margin-top: clamp(28px, 4vw, 38px);
-    background: #0d0d0d;
-    color: #ffffff;
-    border-radius: 12px;
-    padding: clamp(20px, 3.2vw, 28px);
-    display: flex;
-    align-items: center;
-    gap: clamp(16px, 2.6vw, 22px);
-    flex-wrap: wrap;
-}
-
-.post-cta img {
-    width: clamp(64px, 10vw, 84px);
-    height: clamp(64px, 10vw, 84px);
-    object-fit: cover;
-    border-radius: 8px;
-    flex-shrink: 0;
-}
-
-.post-cta-text {
-    flex: 1;
-    min-width: 180px;
-}
-
-.post-cta-text span {
-    display: block;
-    font-size: clamp(10px, 1.2vw, 11px);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    color: #b7ff00;
-    margin-bottom: 4px;
-}
-
-.post-cta-text h3 {
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(15px, 2vw, 18px);
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: .5px;
 }
 
 .post-related {
@@ -1840,12 +1803,6 @@ section {
 
 @media (max-width: 600px) {
     .post-title {
-        font-size: clamp(22px, 6vw, 30px);
-    }
-
-    .post-cta {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
+        font-size: clamp(17px, 4.6vw, 22px);
     }
 }
