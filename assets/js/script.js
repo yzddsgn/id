@@ -55,22 +55,22 @@ function filterProduct(category, el) {
 
 const heroSlides = [
     {
-        image: "https://yzddsgn.github.io/id/assets/products/model/model 1.jpg",
+        image: "https://yzddsgn.github.io/assets1/product/model/model 1.jpg",
         title: "BDG - EST. 1810",
         text: "Bandung lahir pada 25 September 1810, ketika Bupati R.A. Wiranatakusumah II."
     },
     {
-        image: "https://yzddsgn.github.io/id/assets/products/model/model 2.jpg",
+        image: "https://yzddsgn.github.io/assets1/product/model/model 2.jpg",
         title: "BANDUNG - CITY MAP EDITION",
         text: "Desain ini mengusung konsep minimalis urban dengan identitas kota Bandung sebagai fokus utama."
     },
     {
-        image: "https://yzddsgn.github.io/id/assets/products/model/model 3.jpg",
+        image: "https://yzddsgn.github.io/assets1/product/model/model 3.jpg",
         title: "جاكرتــــــا بقت مزعجــــــة أوي",
         text: "Jakarta bukan hanya ramai oleh kendaraan dan gedung tinggi, tetapi juga oleh suara penilaian, gosip, dan orang-orang yang terlalu sibuk mengawasi kehidupan orang lain."
     },
     {
-        image: "https://yzddsgn.github.io/id/assets/products/model/model 4.jpg",
+        image: "https://yzddsgn.github.io/assets1/product/model/model 4.jpg",
         title: "GRAPHIC EDITION",
         text: "Desain ini merepresentasikan tekanan hidup di lingkungan yang penuh komentar dan rasa iri."
     }
