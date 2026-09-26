@@ -65,9 +65,14 @@ const heroSlides = [
         text: "Desain ini mengusung konsep minimalis urban dengan identitas kota Bandung sebagai fokus utama."
     },
     {
-        image: "https://yzddsgn.github.io/assets1/product/model/model 3.jpg",
-        title: "جاكرتــــــا بقت مزعجــــــة أوي",
-        text: "Jakarta bukan hanya ramai oleh kendaraan dan gedung tinggi, tetapi juga oleh suara penilaian, gosip, dan orang-orang yang terlalu sibuk mengawasi kehidupan orang lain."
+        image: "https://yzddsgn.github.io/assets1/product/model/model 6.jpg",
+        title: "MENGANGKAT PESONA SWISS VAN JAVA",
+        text: "Kota Garut selalu memiliki tempat istimewa—sebuah daerah yang dikelilingi pegunungan indah, pesona alam yang asri, serta kekayaan budaya Sunda yang begitu melekat."
+    },
+    {
+        image: "https://yzddsgn.github.io/assets1/product/model/model 5.jpg",
+        title: "GARUT - CITY MAP EDITION",
+        text: "Tampak Belakang: Eksplorasi Visual, Peta Wilayah, & Narasi Kekayaan Garut."
     },
     {
         image: "https://yzddsgn.github.io/assets1/product/model/model 4.jpg",
