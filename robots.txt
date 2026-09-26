@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://yzddsgn.biz.id/sitemap.xml
